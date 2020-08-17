@@ -1,0 +1,12 @@
+<=======================2020-08-15 23:59:40==================>
+Client error: `POST http://localhost:3000/api/v1.0//autenticacion` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api (truncated...)
+
+<===========================================================>
