@@ -1,81 +1,60 @@
 @extends('layouts.app')
 @section('content')
    
-    <!--Recent Projects Section-->
+    <!--Recent Projects Section-->    
     <section class="recent-projects">
-        <div class="auto-container">
-            
+        <div class="auto-container">            
             <div class="sec-title clearfix">
                 <div class="pull-left">
                     <h2>RECENT <span class="normal-font theme_color">Project</span></h2>
                     <div class="text">Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium dolor amet </div>
                 </div>
-                <div class="pull-right padd-top-30">
-                    <a href="#" class="theme-btn btn-style-three">See All Projects</a>
-                </div>
             </div>
-            <div class="row clearfix">
-                
-                <!--Default Featured Column-->
-                <div class="column default-featured-column col-md-3 col-sm-6 col-xs-12">
-                    <article class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <figure class="image-box">
-                            <a href="#"><img src="{{asset('images/resource/featured-image-1.jpg')}}" alt=""></a>
-                        </figure>
-                        <div class="content-box">
-                            <h3><a href="#">Project Name</a></h3>
-                            <div class="column-info">Environment, Go Green Company</div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-three">Learn More</a>
-                        </div>
-                    </article>
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">        
+                <div class="carousel-item active">
+                    <div class="view">
+                        <a href="#"><img class="d-block w-100" src="{{asset('images/resource/featured-image-1.jpg')}}" alt="First slide"/></a>
+                        <div class="mask rgba-black-light"></div> 
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Project Name</h3>
+                        <p>Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</p>
+                    </div>
                 </div>
-                
-                <!--Default Featured Column-->
-                <div class="column default-featured-column col-md-3 col-sm-6 col-xs-12">
-                    <article class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <figure class="image-box">
-                            <a href="#"><img src="{{asset('images/resource/featured-image-2.jpg')}}" alt=""></a>
-                        </figure>
-                        <div class="content-box">
-                            <h3><a href="#">Project Name</a></h3>
-                            <div class="column-info">Environment, Go Green Company</div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-three">Learn More</a>
-                        </div>
-                    </article>
+                <div class="carousel-item">
+                    <div class="view">
+                        <a href="#"><img class="d-block w-100" src="{{asset('images/resource/featured-image-2.jpg')}}" alt="Second slide"/></a>
+                        <div class="mask rgba-black-light"></div> 
+                    </div>
+                  <div class="carousel-caption">
+                    <h3 class="h3-responsive">Project Name</h3>
+                    <p>Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</p>
+                  </div>                  
                 </div>
-                
-                <!--Default Featured Column-->
-                <div class="column default-featured-column col-md-3 col-sm-6 col-xs-12">
-                    <article class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-                        <figure class="image-box">
-                            <a href="#"><img src="{{asset('images/resource/featured-image-3.jpg')}}" alt=""></a>
-                        </figure>
-                        <div class="content-box">
-                            <h3><a href="#">Project Name</a></h3>
-                            <div class="column-info">Environment, Go Green Company</div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-three">Learn More</a>
-                        </div>
-                    </article>
+                <div class="carousel-item">
+                    <div class="view">
+                        <a href="#"><img class="d-block w-100" src="{{asset('images/resource/featured-image-3.jpg')}}" alt="Third slide"/></a>
+                        <div class="mask rgba-black-light"></div> 
+                    </div>
+                  <div class="carousel-caption">
+                    <h3 class="h3-responsive">Project Name</h3>
+                    <p>Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</p>
+                  </div>                  
                 </div>
-                
-                <!--Default Featured Column-->
-                <div class="column default-featured-column col-md-3 col-sm-6 col-xs-12">
-                    <article class="inner-box wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
-                        <figure class="image-box">
-                            <a href="#"><img src="{{asset('images/resource/featured-image-4.jpg')}}" alt=""></a>
-                        </figure>
-                        <div class="content-box">
-                            <h3><a href="#">Project Name</a></h3>
-                            <div class="column-info">Environment, Go Green Company</div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-three">Learn More</a>
-                        </div>
-                    </article>
-                </div>
-                
+                  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                 </a>
             </div>
         </div>
     </section>
@@ -163,10 +142,6 @@
         </div>
         
     </section>
-    
-    
-   
-    
     
     <!--Two Column Fluid -->
     <section class="two-column-fluid">

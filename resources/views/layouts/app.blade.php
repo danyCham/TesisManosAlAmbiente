@@ -10,6 +10,7 @@
 	<link href="{{asset('css/bootstrap.min.css')}}'" rel="stylesheet" type="text/css">
 	<link href="{{asset('css/revolution-slider.css')}}'" rel="stylesheet" type="text/css">
 	<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/mystyle.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('css/responsive.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,60 +18,35 @@
     
     <!-- Main Header -->
     <header class="main-header">
-    	<div class="top-bar">
-        	<div class="top-container">
-            	<!--Info Outer-->
-                 <div class="info-outer">
-                 	<!--Info Box-->
-                    <ul class="box" style="background-color: black;">
-                    	<li><a href="#"><i class="fas fa-envelope"></i>companyname@mail.com</a></li>
-                    	<li><a href="#"><i class="fas fa-phone"></i>(732) 803-010-03</a></li>
-                        <li>
-                        	<a href="{{route('auth.index')}}" > <i class="fas fa-user"></i> Iniciar Sesión</a>
-                        	<a href="{{route('auth.registrarse')}}" > <i class="far fa-edit"></i> Registrarse</a>                        
-                        </li>
-                    </ul>
-                 </div>
-            </div>
-        </div>
-    	<!-- Header Upper -->
     	<div class="header-upper">
         	<div class="auto-container clearfix">
             	<!-- Logo -->
                 <div class="logo">
                     <a href="{{route('home.index')}}"><img src="{{asset('images/logo-1.png')}}" width="300px;" height="100px;" alt="Manos Al Ambiente"></a>
-                 </div>
-                 
-               
-                
+                 </div> 
             </div>
         </div><!-- Header Top End -->
-
-            <div class="nav-outer">                  
-                
-                <!-- Main Menu -->
-                <br><br>
-                <nav class="main-header navbar navbar-expand navbar-white navbar-light" >                    
-                    <ul class="navbar-nav" style="width: auto; margin: auto auto;">	                    
-                        <li class="nav-item ml-auto">                 	   	
-
-                        	<a href="{{route('home.index')}}">Inicio</a> 
-                        	&nbsp;&nbsp;
-                        	<a href="#">Eventos</a>
-                        	&nbsp;&nbsp;
-                        	<a href="#">Galeria</a> 
-                        	&nbsp;&nbsp;
-                        	<a href="#">Acerca de Nosotros</a> 
-                        	&nbsp;&nbsp;  
-                        	<a href="#">Contáctese con Nosotros</a>                                
-                        </li>                                
-                        
-                    </ul>
-                   
-                </nav> 
-                
-            </div>
-        
+        <div class="nav-outer"> 
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light" >
+                <ul class="navbar-nav" style="width: auto; margin: auto auto;">                     
+                    <li class="nav-item ml-auto">
+                        <a href="{{route('home.index')}}">Inicio</a> 
+                        &nbsp;&nbsp;
+                        <a href="#">Eventos</a>
+                        &nbsp;&nbsp;
+                        <a href="#">Galeria</a> 
+                        &nbsp;&nbsp;
+                        <a href="#">Acerca de Nosotros</a> 
+                        &nbsp;&nbsp;  
+                        <a href="#">Contáctese con Nosotros</a>
+                        &nbsp;&nbsp;                        
+                        <a href="{{route('auth.index')}}">Login</a>
+                        &nbsp;&nbsp; 
+                        <a href="{{route('auth.registrarse')}}">Registro de usuarios</a>
+                    </li> 
+                </ul>               
+            </nav>             
+        </div>
     </header><!--End Main Header -->
     
      @yield('content')

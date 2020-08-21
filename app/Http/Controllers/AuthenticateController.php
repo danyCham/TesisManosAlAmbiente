@@ -165,7 +165,7 @@ class AuthenticateController extends Controller {
      	catch (Exception $ex) {
             $logs = new Utils();
             $logs->escribirLog($ex->getMessage());
-     		return redirect()->route('auth.index')->withErrors(['errors'=>'Ocurrio un error inesperado , favor contactar con departamento de sistemas']);
+     		return redirect()->route('auth.index')->withErrors(['errors'=>'Ocurrio un error inesperado, favor contactar con departamento de sistemas']);
      	}
    }
 }

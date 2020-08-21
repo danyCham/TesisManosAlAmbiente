@@ -1,0 +1,5 @@
+<=======================2020-08-17 16:44:55==================>
+Client error: `POST http://192.168.100.139:3000/api/v1.0/autenticacion/registrarUsuario` resulted in a `400 Bad Request` response:
+{}
+
+<===========================================================>
