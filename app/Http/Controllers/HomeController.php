@@ -16,5 +16,24 @@ class HomeController extends Controller {
       return view('welcome');
    }
 
+   public function proyectos(){
+      return view('proyectos');
+   }
+
+   public function galeria(){
+      return view('galeria');
+   }
+
+   public function contacto(){
+      return view('contacto');
+   }
+
+   public function nosotros(){
+      return view('nosotros');
+   }
+
+   public function donaciones(){
+      return view('donaciones');
+   }
 
 }

@@ -69,7 +69,6 @@
             </div>
             
             <div class="row clearfix">
-                
                 <!--Feature Column-->
                 <div class="features-column col-lg-3 col-md-6 col-xs-12">
                     <article class="inner-box">
@@ -78,8 +77,6 @@
                             <h3 class="title">ECOSISTEMA</h3>
                         </div>
                     </article>
-
-                    
                 </div>
 
                 <div class="features-column col-lg-3 col-md-6 col-xs-12">
@@ -99,7 +96,6 @@
                             <h3 class="title">PURIFICACIÓN DE AGUA</h3>
                         </div>
                     </article>
-                    
                 </div>
                 
                <div class="features-column col-lg-3 col-md-6 col-xs-12">
@@ -118,10 +114,7 @@
     
     <!--Featured Fluid Section-->
     <section class="featured-fluid-section">
-        
-        
         <div class="outer clearfix">
-            
             <!--Image Column-->
             <div class="image-column" style="background-image:url({{asset('images/resource/fluid-image-1.jpg')}});"></div>
             
@@ -144,14 +137,9 @@
     </section>
     
     <!--Two Column Fluid -->
-    <section class="two-column-fluid">
-        
-        
+    <section class="two-column-fluid"> 
         <div class="outer clearfix">
-            
-            
             <article class="column left-column" style="background-image:url({{asset('images/resource/fluid-image-3.jpg')}});">
-                
                 <div class="content-box pull-right">    
                     <h2>Some <span class="normal-font theme_color">Facts</span></h2>
                     <div class="title-text">Lorem ipsum dolor some link sit amet, cum at inani interesset</div>
@@ -207,15 +195,11 @@
                                 <div class="signature"><img src="{{asset('images/resource/signature-image-1.png')}}" alt=""></div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-                
                 <div class="clearfix"></div>
             </article>
-            
         </div>
-        
     </section>
     
     <!--Events Section-->
@@ -311,13 +295,13 @@
             <div class="row clearfix">
                 <!--Column-->
                 <div class="column col-md-9 col-sm-12 col-xs-12">
-                    <h2>Subcribe for Newsletter</h2>
+                    <h2>Se parte de nuestra fundación</h2>
                     There are many variations of passages of Lorem Ipsum available but the majority have 
                 </div>
                 <!--Column-->
                 <div class="column col-md-3 col-sm-12 col-xs-12">
                     <div class="text-right padd-top-20">
-                        <a href="#" class="theme-btn btn-style-one">Subscribe Now</a>
+                        <a href="#" class="theme-btn btn-style-one">Suscríbase ahora</a>
                     </div>
                 </div>
             </div>
