@@ -16,7 +16,7 @@
 Route::get('/','HomeController@index')->name('home.index');
 
 /*==========================================================*/
-
+ 
  
 
 /*rutas para la autenticación del usuario*/
@@ -27,4 +27,16 @@ Route::post('/verificarAuth','AuthenticateController@validateUser')->name('auth.
 Route::post('/registro','AuthenticateController@registrarse')->name('auth.registroUsuario');
 Route::get('/welcome','AuthenticateController@welcome')->name('auth.welcome');
 Route::get('/destroy','AuthenticateController@destroy')->name('auth.destroy');
+/*==========================================================*/
+
+/*rutas del modulo de seguridad*/
+/*==========================================================*/
+
+//rutas para la pantalla de usuarios
+Route::get('/seguridad/usuarios','UsuarioController@index')->name('usuario.index');
+//para consulta los usuarios
+Route::get('/seguridad/usuarios/consulta/{idRol}/{Cedula}/{Opcion}','UsuarioController@consultarUsuarios')->name('usuario.consultar');
+
+
+
 /*==========================================================*/

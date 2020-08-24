@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 	  <link rel="stylesheet" type="text/css" href="{{asset('css/plantilla.css')}}">
 	 
@@ -48,7 +49,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-secondary elevation-4">
+  <aside class="main-sidebar sidebar-dark-info elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('auth.welcome')}}" class="brand-link">
       <img src="{{ asset('images/logo.png') }}" alt="ManosAmbiente Logo" class="brand-image img elevation-3"
@@ -81,16 +82,18 @@
                   <p>Roles</p>
                 </a>
               </li>
+             
+              <li class="nav-item">
+                <a href="{{route('usuario.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usuarios</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Asignacion Menú</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Usuarios</p>
                 </a>
               </li>
             </ul>
@@ -141,7 +144,9 @@
     </div>
      
     <div class="content">
-           @yield('content')        
+           <div id="app">
+               @yield('content')   
+           </div>              
       
     </div>
      
@@ -166,13 +171,13 @@
   </footer>
 </div>
   
-
+  <script src="{{asset('js/app.js')}}"></script>
   <script src="{{asset('js_/jquery.min.js')}}"></script>
   <script src="{{asset('js_/adminlte.min.js')}}"></script>
-  <script src="{{asset('js_/bootstrap.min.js')}}"></script>
+  <script src="{{asset('js_/bootstrap.min.js')}}"></script> 
   <script src="{{asset('js_/popper.min.js')}}"></script>  
   <script src="{{asset('js_/sweetalert2@9.js')}}"></script>
-  <script src="{{asset('js/app.js')}}"></script>
+  
   @yield('scripts')
 </body>
 </html>

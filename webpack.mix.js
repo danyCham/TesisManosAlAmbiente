@@ -11,10 +11,4 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.styles([
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css',
-    'resources/css/adminlte.min.css',
-    'resources/css/bootstrap.min.css',
-    'resources/css/font-awesome.min.css'
-], 'public/css/plantilla.css') 
-.js(['resources/js/app.js'],'public/js/app.js');
+mix.js(['resources/js/app.js'],'public/js/app.js');
