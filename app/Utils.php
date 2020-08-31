@@ -28,14 +28,14 @@ class Utils
 
 	 }
 
-	 public function validarAutorizacion($pantalla,$ruta){
+	  public function validarAutorizacion($pantalla,$ruta){
 	 	    $array = session()->get('SubMenu');
 			$valida = false;
 			$modoConsulta = "S";
 			foreach ($array as $value){               
                if($value['NombreSubMenu'] == $pantalla){
                	 $valida = true;
-               	 $modoConsulta = $value['Gestionar'];
+               	 $modoConsulta = $value['gestion'];
                }               
 			}
 			

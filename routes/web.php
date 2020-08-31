@@ -17,7 +17,7 @@ Route::get('/','HomeController@index')->name('home.index');
 
 /*==========================================================*/
  
- 
+  
 
 /*rutas para la autenticación del usuario*/
 /*==========================================================*/
@@ -29,6 +29,8 @@ Route::get('/welcome','AuthenticateController@welcome')->name('auth.welcome');
 Route::get('/destroy','AuthenticateController@destroy')->name('auth.destroy');
 /*==========================================================*/
 
+
+
 /*rutas del modulo de seguridad*/
 /*==========================================================*/
 
@@ -36,6 +38,25 @@ Route::get('/destroy','AuthenticateController@destroy')->name('auth.destroy');
 Route::get('/seguridad/usuarios','UsuarioController@index')->name('usuario.index');
 //para consulta los usuarios
 Route::get('/seguridad/usuarios/consulta/{idRol}/{Cedula}/{Opcion}','UsuarioController@consultarUsuarios')->name('usuario.consultar');
+
+Route::get('/noautorizado','AuthenticateController@noautIndex')->name('usuario.noautorizado');
+
+//ruta para generar insertar actualizar usuarios
+Route::post('/seguridad/usuarios/mantenimiento','UsuarioController@mantenimientoUsuario')->name('usuario.mantenimiento');
+
+//ruta para pantalla asignación de roles de usuario
+Route::get('/seguridad/asignacionmenurol','AsignacionMenuController@index')->name('menurol.index');
+//ruta para consultar menu, submenu y menu rol
+Route::get('/seguridad/asignacionmenurol/consultar/{opcion}','AsignacionMenuController@consultar')->name('menurol.consultar');
+
+//ruta para mantenimiento de menu rol
+Route::post('/seguridad/asignacionmenurol/mantenimiento','AsignacionMenuController@mantenimiento')->name('menurol.mantenimiento');
+
+/*==========================================================*/
+
+/* rutas del modulo de post */
+/*==========================================================*/
+
 
 
 

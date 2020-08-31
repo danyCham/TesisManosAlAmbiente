@@ -119,7 +119,7 @@
           	  	let file = document.getElementById('Imagen').files[0];
           	  	let fileName = document.getElementById('Imagen').files[0].name;
           	  	$("#ImagenPerfil").val(fileName);
-          	  	fd.append('imagen',file,fileName);
+          	  	fd.append('image',file,fileName);
           	  	let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);
           	  	envioImagen.then((data)=>{
           	  		console.log(data);
