@@ -8,7 +8,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-	  <link rel="stylesheet" type="text/css" href="{{asset('css/plantilla.css')}}">
+	  <link rel="stylesheet" type="text/css" href="{{asset('css/adminlte.min.css')}}">
+  	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+	  <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css') }}">	
+    <link rel="stylesheet" type="text/css" href="{{asset('css/DataTables/jquery.dataTables.min.css')}}">
+	 <link rel="stylesheet" type="text/css" href="{{asset('css/DataTables/buttons.dataTables.min.css')}}">
+	 <link rel="stylesheet" type="text/css" href="{{asset('css/DataTables/select.dataTables.min.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}"> 
 	 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
@@ -102,14 +108,29 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+          @foreach(session()->get('Menu') as $item)
+              <li class="nav-item has-treeview menu-open">
                 <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Expociciones</p>
+                  <i class="nav-icon {{$item['icono']}}"></i>
+                  <p>
+                    {{$item['nombre']}}
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                @foreach(session()->get('SubMenu') as $item2)
+                <ul class="nav nav-treeview">
+                  @if($item['id_menu'] == $item2['id_menu'])
+                  <li class="nav-item">
+                    <a href="{{route($item2['url'])}}" class="nav-link active" style="background-color: #444242;color:white;">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{$item2['NombreSubMenu']}}</p>
+                    </a>
+                  </li>   
+                  @endif               
+                </ul>
+                @endforeach
               </li>
-               
-            </ul>
-          </li>
+          @endforeach
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -165,13 +186,23 @@
   </footer>
 </div>
   
-  <script src="{{asset('js/app.js')}}"></script>
-  <script src="{{asset('js_/jquery.min.js')}}"></script>
-  <script src="{{asset('js_/adminlte.min.js')}}"></script>
-  <script src="{{asset('js_/bootstrap.min.js')}}"></script> 
-  <script src="{{asset('js_/popper.min.js')}}"></script>  
-  <script src="{{asset('js_/sweetalert2@9.js')}}"></script>
-  
+ 
+  <script src="{{asset('js/jquery.min.js')}}"></script>
+  <script src="{{asset('js/adminlte.min.js')}}"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('js/popper.min.js')}}"></script>   
+	<script src="{{asset('js/DataTables/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/dataTables.buttons.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/buttons.flash.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/jszip.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/pdfmake.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/vfs_fonts.js')}}"></script>
+	<script src="{{asset('js/DataTables/buttons.html5.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/buttons.print.min.js')}}"></script>
+	<script src="{{asset('js/DataTables/dataTables.select.min.js')}}"></script>
+ 
+  <script type="text/javascript" src="{{asset('js/sweetalert2@9.js')}}"></script>
+ 
   @yield('scripts')
 </body>
 </html>

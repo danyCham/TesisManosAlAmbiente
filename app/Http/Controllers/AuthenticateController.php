@@ -106,6 +106,12 @@ class AuthenticateController extends Controller {
    public function registrarseIndex(){
    	  return view('registrarse');
    }
+
+    //método para redirigir a pantalla de no aut
+	  public function noautIndex(){
+		return view('modules.noautorizado');
+     }
+  
    
    //método para registrarse como usuario común desde la pantalla principal
    public function registrarse(Request $request){
