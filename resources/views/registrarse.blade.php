@@ -28,9 +28,10 @@
 					
 					<div class="input-group mb-3">
 						<div class="custom-file">
-						    <input type="file" class="file-input" id="inputGroupFile">
+						    <input type="file" name="Imagen" accept="image/*" class="file-input" id="inputGroupFile01">
+						    <input type="text" name="ImagenPerfil" id="ImagenPerfil" hidden><br>
 						    <label class="custom-file-label" for="inputGroupFile01">Ingrese su imagen de perfil</label>
-					    </div>					    
+					    </div>	
 					</div>					
 
 					<div class="input-group mb-3">
@@ -58,7 +59,7 @@
 					  <div class="input-group-prepend">
 					    <label class="input-group-text" for="inputGroupSelect01">Sexo:</label>
 					  </div>
-					  <select class="custom-select" id="inputGroupSelect01">
+					  <select class="custom-select" id="inputGroupSelect01" name="Sexo">
 					    <option selected>Escoger...</option>
 				        <option value="F">Femenino</option>
 				        <option value="M">Masculino</option>
@@ -90,7 +91,7 @@
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">Correo</span>
 					  </div>
-					  <input type="email" value="{{old('Correo')}}" name="Email" id="email" class="form-control" placeholder="Ingrese su correo electrónico" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="email" value="{{old('Correo')}}" name="Correo" id="email" class="form-control" placeholder="Ingrese su correo electrónico" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
 					</div>
 
 					<div class="input-group mb-3">
@@ -114,10 +115,10 @@
    	  	  //detecta envento de envío de la imagen , primero la sube al servidor, extrae el nombre y lo guarda en campo oculto que viajará al controlador
           $("#btnEnviar").on("click",function(){
 
-          	  if($("#Imagen").val().length>0){
+          	  if($("#inputGroupFile01").val().length>0){
           	  	const fd = new FormData();
-          	  	let file = document.getElementById('Imagen').files[0];
-          	  	let fileName = document.getElementById('Imagen').files[0].name;
+          	  	let file = document.getElementById('inputGroupFile01').files[0];
+          	  	let fileName = document.getElementById('inputGroupFile01').files[0].name;
           	  	$("#ImagenPerfil").val(fileName);
           	  	fd.append('image',file,fileName);
           	  	let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);

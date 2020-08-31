@@ -32,14 +32,16 @@
                     <li class="nav-item ml-auto">
                         <a href="{{route('home.index')}}">Inicio</a> 
                         &nbsp;&nbsp;
-                        <a href="#">Eventos</a>
+                        <a href="{{route('home.proyectos')}}">Proyectos</a>
                         &nbsp;&nbsp;
-                        <a href="#">Galeria</a> 
+                        <a href="{{route('home.galeria')}}">Galeria</a> 
                         &nbsp;&nbsp;
-                        <a href="#">Acerca de Nosotros</a> 
+                        <a href="{{route('home.donaciones')}}">Donaciones</a> 
+                        &nbsp;&nbsp;
+                        <a href="{{route('home.nosotros')}}">Acerca de Nosotros</a> 
                         &nbsp;&nbsp;  
-                        <a href="#">Contáctese con Nosotros</a>
-                        &nbsp;&nbsp;                        
+                        <a href="{{route('home.contacto')}}">Contáctese con Nosotros</a>
+                        &nbsp;&nbsp;                       
                         <a href="{{route('auth.index')}}">Login</a>
                         &nbsp;&nbsp; 
                         <a href="{{route('auth.registrarse')}}">Registro de usuarios</a>
@@ -57,8 +59,11 @@
 	    <footer class="main-footer" style="background-image:url({{asset('images/background/footer-bg.jpg')}});">    	 
 	    	<div class="footer-bottom">
 	            <div class="auto-container clearfix">
-	               
-	                <div class="copyright text-center">Copyright 2020 &copy; Manos al Ambiente <a href="#"></a>  </div>
+                    <div class="copyright text-center">Agro. TATIANA ISABEL SALAS MATUTE 
+                        <br>Teléfono: 043726220<br>Celular: 0993310402<br>Direccion: Lomas de Urdesa Av. Olmos 2531 y Panorama<br>Correo electronico: manosalambiente0303@gmail.com</div>
+                    <div class="copyright text-center">Copyright 2020 &copy; Manos al Ambiente 
+                        <a href="#"></a></div>
+                        
 	            </div>
 	        </div>	        
 	    </footer>

@@ -15,6 +15,12 @@
 /*==========================================================*/
 Route::get('/','HomeController@index')->name('home.index');
 
+Route::get('/contacto','HomeController@contacto')->name('home.contacto');
+Route::get('/galeria','HomeController@galeria')->name('home.galeria');
+Route::get('/nosotros','HomeController@nosotros')->name('home.nosotros');
+Route::get('/proyectos','HomeController@proyectos')->name('home.proyectos');
+Route::get('/donaciones','HomeController@donaciones')->name('home.donaciones');
+
 /*==========================================================*/
  
   
