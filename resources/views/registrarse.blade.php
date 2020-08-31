@@ -28,38 +28,38 @@
 					
 					<div class="input-group mb-3">
 						<div class="custom-file">
-						    <input type="file" name="Imagen" accept="image/*" class="file-input" id="inputGroupFile01">
+						    <input type="file" name="Imagen" accept="image/*" class="file-input border border-success" id="inputGroupFile01">
 						    <input type="text" name="ImagenPerfil" id="ImagenPerfil" hidden><br>
-						    <label class="custom-file-label" for="inputGroupFile01">Ingrese su imagen de perfil</label>
+						    <label class="custom-file-label border border-success" for="inputGroupFile01">Ingrese su imagen de perfil</label>
 					    </div>	
 					</div>					
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Nombre</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Nombre</span>
 					  </div>
-					  <input type="text" value="{{old('Nombres')}}" name="Nombres" id="nombre" placeholder="Ingrese su nombre" title="Es necesario su nombre" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required/>
+					  <input type="text" value="{{old('Nombres')}}" name="Nombres" id="nombre" placeholder="Ingrese su nombre" title="Es necesario su nombre" class="form-control border border-success" aria-label="Username" aria-describedby="basic-addon1" required maxlength="50" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Apellido</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Apellido</span>
 					  </div>
-					  <input type="text" value="{{old('Apellidos')}}" name="Apellidos" id="Apellidos" class="form-control" placeholder="Ingrese sus apellidos" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="text" value="{{old('Apellidos')}}" name="Apellidos" id="Apellidos" placeholder="Ingrese sus apellidos" class="form-control border border-success" aria-label="Username" aria-describedby="basic-addon1" required maxlength="50" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Cedula</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Cedula</span>
 					  </div>
-					  <input type="number" value="{{old('Cedula')}}"  name="Cedula" id="cedula" class="form-control" placeholder="Ingrese su cedula" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="number" value="{{old('Cedula')}}"  name="Cedula" id="cedula" placeholder="Ingrese su cedula" class="form-control border border-success" aria-label="Username" aria-describedby="basic-addon1" required maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 
 				    <div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <label class="input-group-text" for="inputGroupSelect01">Sexo:</label>
+					    <label class="input-group-text border border-success" for="inputGroupSelect01">Sexo:</label>
 					  </div>
-					  <select class="custom-select" id="inputGroupSelect01" name="Sexo">
+					  <select class="custom-select border border-success" id="inputGroupSelect01" name="Sexo">
 					    <option selected>Escoger...</option>
 				        <option value="F">Femenino</option>
 				        <option value="M">Masculino</option>
@@ -68,37 +68,37 @@
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Fecha Nacimiento</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Fecha Nacimiento</span>
 					  </div>
-					  <input type="date" value="{{old('FechaNacimiento')}}" name="FechaNacimiento" id="fechaNacimiento" title ="Ingrese su fecha de nacimiento" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="date" value="{{old('FechaNacimiento')}}" name="FechaNacimiento" id="fechaNacimiento" title ="Ingrese su fecha de nacimiento" class="form-control border border-success" aria-label="Username" aria-describedby="basic-addon1" required>
 					</div>
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Direccion</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Direccion</span>
 					  </div>
-					  <input type="text" value="{{old('Direccion')}}" name="Direccion" id="direccion" class="form-control" placeholder="Ingrese su Direccion" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="text" value="{{old('Direccion')}}" name="Direccion" id="direccion" placeholder="Ingrese su Direccion" class="form-control border border-success" aria-label="Username" aria-describedby="basic-addon1" required maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Teléfono</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Teléfono</span>
 					  </div>
-					  <input type="number" value="{{old('Telefono')}}" name="Telefono" id="telefono"  placeholder="Ingrese su teléfono" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="number" value="{{old('Telefono')}}" name="Telefono" id="telefono"  placeholder="Ingrese su teléfono" class="form-control border border-success" aria-label="Username" aria-describedby="basic-addon1" required maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Correo</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Correo</span>
 					  </div>
-					  <input type="email" value="{{old('Correo')}}" name="Correo" id="email" class="form-control" placeholder="Ingrese su correo electrónico" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+					  <input type="email" value="{{old('Correo')}}" name="Correo" id="email" class="form-control border border-success" placeholder="Ingrese su correo electrónico" aria-label="Username" aria-describedby="basic-addon1" required maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Password</span>
+					    <span class="input-group-text border border-success" id="basic-addon1">Password</span>
 					  </div>
-					  <input type="password" name="Clave" placeholder="Ingrese su password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le recordamos que para proteger su informacion la clave deve tener minimo 8 caracteres entre ellos mayusculas , minusculas , numeros y caracteres especiales" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required/>
+					  <input type="password" name="Clave" placeholder="Ingrese su password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le recordamos que para proteger su informacion la clave deve tener minimo 8 caracteres entre ellos mayusculas , minusculas , numeros y caracteres especiales" class="form-control border border-success" min="8" aria-label="Username" aria-describedby="basic-addon1" required maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
 					</div>
 						
 					<div class="input-group mb-3">

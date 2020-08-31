@@ -76,15 +76,9 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Roles</p>
-                </a>
-              </li>
-             
-              <li class="nav-item">
-                <a href="{{route('usuario.index')}}" class="nav-link">
+                <a href="{{route('usuario.index')}}" class="{{ request()->routeIs('usuario.index') ? 'nav-link active' : 'nav-link' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>

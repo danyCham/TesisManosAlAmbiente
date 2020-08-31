@@ -711,7 +711,7 @@ ul,li{
 	top:0px;
 	color:#677c91;
 	padding:25px 0px;
-	background:#ffffff;
+	background:#FBFEFBB5;
 }
 
 .fixed-header.main-header .header-upper{
@@ -1135,7 +1135,8 @@ ul,li{
 .header-style-two .lower-part .auto-container{
 	position:relative;
 	max-width:1170px;
-	padding:0px 0px;	
+	padding:0px 0px;
+
 }
 
 .header-style-two .lower-part .outer-box{

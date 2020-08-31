@@ -6,8 +6,8 @@
         <div class="auto-container">            
             <div class="sec-title clearfix">
                 <div class="pull-left">
-                    <h2>RECENT <span class="normal-font theme_color">Project</span></h2>
-                    <div class="text">Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium dolor amet </div>
+                    <h2>Conoce los ultimos <span class="normal-font theme_color">Projectos</span></h2>
+                    <div class="text">Este este tu momento de ser parte de nuestro grupo en pro del medio ambiente</div>
                 </div>
             </div>
             <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -65,7 +65,7 @@
             <div class="title-box text-center">
                 <h1>30000+</h1>
                 <h2>De Personas trabajan con nostros</h2>
-                <div class="text">El medio ambiente es donde vivimos, nuestro hogar debe ser cuidado</div>
+                <h3>El medio ambiente es donde vivimos, nuestro hogar debe ser cuidado</h3>
             </div>
             
             <div class="row clearfix">
@@ -207,8 +207,8 @@
         <div class="auto-container">
             
             <div class="sec-title text-center">
-                <h2>Latest <span class="normal-font theme_color">Event</span></h2>
-                <div class="text">Lorem ipsum dolor sit amet, cum at inani interes setnisl omnium dolor amet amet qco modo cum text </div>
+                <h2>Conoces los ultimos <span class="normal-font theme_color">Eventos</span></h2>
+                <div class="text">Unete a este movimiento en favor del medio ambiente</div>
             </div>
             <div class="row clearfix">
                 
@@ -217,7 +217,6 @@
                     <article class="inner-box">
                         <figure class="image-box">
                             <a href="#"><img src="{{asset('images/resource/featured-image-5.jpg')}}" alt=""></a>
-                            <div class="post-tag">Featured</div>
                         </figure>
                         <div class="content-box">
                             <h3><a href="#">One Tree Thousand Hope</a></h3>
@@ -280,10 +279,10 @@
     <section class="parallax-section" style="background-image:url({{asset('images/parallax/image-1.jpg')}});">
         <div class="auto-container">
             <div class="text-center">
-                <h2>The Best time to <span class="theme_color">plant tree</span> is now</h2>
-                <div class="text">Some lorem ipsum subtitle will be here ipsum dolor</div>
-                <a href="#" class="theme-btn btn-style-two">Donate Now!</a>
-                <a href="#" class="theme-btn btn-style-one">Join Event</a>
+                <h2>El mejor momento para el <span class="theme_color">planeta tierra</span> es ahora</h2>
+                <div class="text">Tu aporte importa, conoce más</div>
+                <a href="{{route('home.donaciones')}}" class="theme-btn btn-style-two">Donaciones</a>
+                <a href="{{route('home.proyectos')}}" class="theme-btn btn-style-one">Eventos</a>
             </div>
         </div>
     </section>
@@ -296,12 +295,12 @@
                 <!--Column-->
                 <div class="column col-md-9 col-sm-12 col-xs-12">
                     <h2>Se parte de nuestra fundación</h2>
-                    There are many variations of passages of Lorem Ipsum available but the majority have 
+                    Una fundación comprometida con el cambio en el medio ambiente 
                 </div>
                 <!--Column-->
                 <div class="column col-md-3 col-sm-12 col-xs-12">
                     <div class="text-right padd-top-20">
-                        <a href="#" class="theme-btn btn-style-one">Suscríbase ahora</a>
+                        <a href="{{route('auth.registrarse')}}" class="theme-btn btn-style-one">Suscríbase ahora</a>
                     </div>
                 </div>
             </div>

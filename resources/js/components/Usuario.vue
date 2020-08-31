@@ -106,7 +106,7 @@
 	   	    	</div>
 			                 
 	   	    	 <table id="tblUsers"  class="table table-responsive table-hover table-striped" width="98%">				  
-					<paginate ref="paginator" name = "arrayUsuarios" :list = "arrayUsuarios" :per = "5">
+					<paginate ref="paginator" name = "arrayUsuarios" :list = "arrayUsuarios" :per = "4">
 						<thead style="background-color: #0d967d;color:white;">
 							<th>Cod. Usuario</th>
 							<th>Email</th>

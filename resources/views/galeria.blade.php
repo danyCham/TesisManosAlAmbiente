@@ -1,23 +1,83 @@
 @extends('layouts.app')
 @section('content')
-	<section class="featured-fluid-section">
-        <div class="outer clearfix">
-            <!--Image Column-->
-            <div class="image-column" style="background-image:url({{asset('images/resource/fluid-image-1.jpg')}});"></div>
-            
-            <!--Text Column-->
-            <article class="column text-column dark-column wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms" style="background-image:url({{asset('images/resource/fluid-image-2.jpg')}});">
-                
-                <div class="content-box pull-left"> 
-                    <h2>Join <span class="theme_color">our event</span> &amp; helping us by donation</h2>
-                    <div class="title-text">Lorem ipsum dolor <a href="#"><strong>some link</strong></a> sit amet, cum at inani interesset </div>
-                    <div class="text">Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero. Duo consul lorem probatus no qu alterum sit at no simple dummy.</div>
-                    <a href="#" class="theme-btn btn-style-one">Join Now</a>
-                    <a href="#" class="theme-btn btn-style-two">View details</a>
+    <section class="events-section latest-events">
+        <div class="auto-container">            
+            <div class="sec-title text-center">
+                <h2>Seccion de <span class="theme_color">Exposiciones</span> de<br>manos al ambiente</h2>
+            </div>
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="{{asset('images/exposiciones/exposicion_1.png')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
-                
-                <div class="clearfix"></div>
-            </article>
-        </div>        
+                <div class="card-footer bg-success">
+                  <small class="text-white">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="{{asset('images/exposiciones/exposicion_2.png')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div class="card-footer bg-success">
+                  <small class="text-white">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="{{asset('images/exposiciones/exposicion_3.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+                <div class="card-footer bg-success">
+                  <small class="text-white">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    <section class="events-section latest-events">
+        <div class="auto-container">
+            
+            <div class="sec-title text-center">
+                <h2>Seccion de <span class="theme_color">Subastas</span> de<br>manos al ambiente</h2>
+                <h3 class="text-success font-weight-bold">Para ofertar en las subastas debe primero iniciar sección</h3>
+            </div>
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="{{asset('images/exposiciones/exposicion_1.png')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer bg-success">
+                  <small class="text-white">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="{{asset('images/exposiciones/exposicion_2.png')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title ">Card title</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div class="card-footer bg-success">
+                  <small class="text-white">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="{{asset('images/exposiciones/exposicion_3.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+                <div class="card-footer bg-success">
+                  <small class="text-white">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+        </div>
     </section>
 @endsection

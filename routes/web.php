@@ -14,7 +14,7 @@
 //rutas para el home controller , pantallas de bienvenidas
 /*==========================================================*/
 Route::get('/','HomeController@index')->name('home.index');
-
+//rutas para la pantalla de inicio
 Route::get('/contacto','HomeController@contacto')->name('home.contacto');
 Route::get('/galeria','HomeController@galeria')->name('home.galeria');
 Route::get('/nosotros','HomeController@nosotros')->name('home.nosotros');
@@ -42,7 +42,3 @@ Route::get('/destroy','AuthenticateController@destroy')->name('auth.destroy');
 Route::get('/seguridad/usuarios','UsuarioController@index')->name('usuario.index');
 //para consulta los usuarios
 Route::get('/seguridad/usuarios/consulta/{idRol}/{Cedula}/{Opcion}','UsuarioController@consultarUsuarios')->name('usuario.consultar');
-
-
-
-/*==========================================================*/

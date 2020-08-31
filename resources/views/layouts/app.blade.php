@@ -18,38 +18,47 @@
     
     <!-- Main Header -->
     <header class="main-header">
+        <!-- Image and text -->
+        
     	<div class="header-upper">
         	<div class="auto-container clearfix">
-            	<!-- Logo -->
                 <div class="logo">
-                    <a href="{{route('home.index')}}"><img src="{{asset('images/logo-1.png')}}" width="300px;" height="100px;" alt="Manos Al Ambiente"></a>
-                 </div> 
+                    <a href="{{route('home.index')}}"><img src="{{asset('images/logo-1.png')}}"  alt="Manos Al Ambiente" width="250px;" height="100px;"></a>
+                    
+                </div>
+                <div class="d-flex align-items-end flex-column">
+                  <a href="{{route('auth.registrarse')}}" class="px-3 btn btn-outline-success btn-sm">Registrate</a>
+                  <a href="{{route('auth.index')}}" class="mt-2 btn btn-outline-primary btn-sm">Inicia sesion</a>
+                </div>
             </div>
         </div><!-- Header Top End -->
         <div class="nav-outer"> 
             <nav class="main-header navbar navbar-expand navbar-white navbar-light" >
-                <ul class="navbar-nav" style="width: auto; margin: auto auto;">                     
-                    <li class="nav-item ml-auto">
-                        <a href="{{route('home.index')}}">Inicio</a> 
-                        &nbsp;&nbsp;
-                        <a href="{{route('home.proyectos')}}">Proyectos</a>
-                        &nbsp;&nbsp;
-                        <a href="{{route('home.galeria')}}">Galeria</a> 
-                        &nbsp;&nbsp;
-                        <a href="{{route('home.donaciones')}}">Donaciones</a> 
-                        &nbsp;&nbsp;
-                        <a href="{{route('home.nosotros')}}">Acerca de Nosotros</a> 
-                        &nbsp;&nbsp;  
-                        <a href="{{route('home.contacto')}}">Contáctese con Nosotros</a>
-                        &nbsp;&nbsp;                       
-                        <a href="{{route('auth.index')}}">Login</a>
-                        &nbsp;&nbsp; 
-                        <a href="{{route('auth.registrarse')}}">Registro de usuarios</a>
-                    </li> 
-                </ul>               
+                <ul class="nav nav-tabs" style="width: auto; margin: auto auto;">
+                  <li class="nav-item ">
+                    <a class="{{ request()->routeIs('home.index') ? 'nav-link active' : 'nav-link' }}" href="{{route('home.index')}}">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="{{ request()->routeIs('home.proyectos') ? 'nav-link active' : 'nav-link' }}" href="{{route('home.proyectos')}}">Proyectos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="{{ request()->routeIs('home.galeria') ? 'nav-link active' : 'nav-link' }}" href="{{route('home.galeria')}}">Galeria</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="{{ request()->routeIs('home.donaciones') ? 'nav-link active' : 'nav-link' }}" href="{{route('home.donaciones')}}">Donaciones</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="{{ request()->routeIs('home.nosotros') ? 'nav-link active' : 'nav-link' }}" href="{{route('home.nosotros')}}">Acerca de Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="{{ request()->routeIs('home.contacto') ? 'nav-link active' : 'nav-link' }}" href="{{route('home.contacto')}}">Contáctese con Nosotros</a>
+                  </li>
+                </ul>          
             </nav>             
         </div>
     </header><!--End Main Header -->
+
+
     
      @yield('content')
 	
