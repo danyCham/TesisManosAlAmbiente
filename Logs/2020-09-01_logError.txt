@@ -1,0 +1,27 @@
+<=======================2020-09-01 16:49:11==================>
+cURL error 6: Could not resolve host: 6 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)
+<===========================================================>
+<=======================2020-09-01 16:50:49==================>
+cURL error 6: Could not resolve host: 6 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)
+<===========================================================>
+<=======================2020-09-01 16:54:25==================>
+cURL error 6: Could not resolve host: 6 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)
+<===========================================================>
+<=======================2020-09-01 16:56:07==================>
+cURL error 6: Could not resolve host: 6 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)
+<===========================================================>
+<=======================2020-09-01 16:57:03==================>
+Undefined index: origina
+<===========================================================>
+<=======================2020-09-01 19:31:51==================>
+Client error: `GET http://localhost:3000/api/v1.0/post//6` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>

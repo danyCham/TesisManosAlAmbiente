@@ -39402,7 +39402,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-warning",
+              staticClass: "btn btn-info",
               attrs: {
                 id: "btnAgregarUser",
                 type: "button",

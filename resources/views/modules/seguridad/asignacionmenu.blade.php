@@ -21,7 +21,7 @@
    	 	   	  <div class="card-body">
    	 	   	  	<div class="form-group text-center">
 						   	    		<!-- Button trigger modal -->
-					<button  id="btnAgregarMenuRol" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalMenuRol">
+					<button  id="btnAgregarMenuRol" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMenuRol">
 					  Agregar <i class="fas fa-plus"></i>
 					</button>
                     

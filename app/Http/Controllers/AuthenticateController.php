@@ -89,7 +89,8 @@ class AuthenticateController extends Controller {
 	     		session(['idUsuario' => $idUsuario]);
 	     		session(['rol' => $rol]);
 	     		session(['token' => $token]);
-	     		session(['reset' => $reset]);
+				session(['reset' => $reset]);
+				session(['idUsuario'=>$array['original']['Usuario'][0]['id_usuario']]); 
 	     		 
 	     		return redirect()->route('auth.welcome');     		
 	     	}

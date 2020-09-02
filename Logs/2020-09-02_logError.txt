@@ -1,0 +1,42 @@
+<=======================2020-09-02 00:10:23==================>
+Client error: `GET http://localhost:3000/api/v1.0/post//6` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-02 16:17:29==================>
+Client error: `POST http://localhost:3000/api/v1.0/post/0/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api (truncated...)
+
+<===========================================================>
+<=======================2020-09-02 16:18:20==================>
+Client error: `POST http://localhost:3000/api/v1.0/post/0/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api (truncated...)
+
+<===========================================================>
+<=======================2020-09-02 16:19:08==================>
+Undefined index: origina
+<===========================================================>
+<=======================2020-09-02 16:19:49==================>
+Undefined index: origina
+<===========================================================>

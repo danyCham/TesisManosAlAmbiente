@@ -62,8 +62,10 @@ Route::post('/seguridad/asignacionmenurol/mantenimiento','AsignacionMenuControll
 
 /* rutas del modulo de post */
 /*==========================================================*/
-
-
+Route::get('/galeria/post','PostController@index')->name('post.index');
+Route::get('/galeria/post/consultar','PostController@consultarPostGeneral')->name('post.consultaGeneral');
+Route::get('/galeria/post/consultar/administracion','PostController@consultarPost')->name('post.consultar');
+Route::post('/galeria/post/mantenimiento','PostController@mantenimiento')->name('post.mantenimiento');
 
 
 /*==========================================================*/
