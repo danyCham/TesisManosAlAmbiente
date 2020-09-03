@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Middleware;
 use App\Utils;
 use Exception; 
+use App\Http\Controllers\PostController;
 
 class HomeController extends Controller {
    
@@ -21,7 +22,10 @@ class HomeController extends Controller {
    }
 
    public function galeria(){
-      return view('galeria');
+      $post = new PostController();
+      $datos = $post->consultarPostGeneral();  
+      //dd($datos);
+      return view('galeria')->with(['Post'=>$datos]);
    }
 
    public function contacto(){

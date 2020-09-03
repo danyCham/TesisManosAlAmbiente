@@ -165,7 +165,7 @@
 	<script src="{{asset('js/DataTables/dataTables.select.min.js')}}"></script>
  
   <script type="text/javascript" src="{{asset('js/sweetalert2@9.js')}}"></script>
- 
+  <script src="{{asset('js_/axios.min.js')}}"></script>
   @yield('scripts')
 </body>
 </html>

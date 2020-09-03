@@ -6,7 +6,7 @@
 			</div>  	
 	   	    <div class="card-body">
 	   	    	<div class="form-group text-center">                       
-					<button  id="btnAgregarUser" type="button"  data-toggle="modal" data-target="#modalUsuarios"  class="btn btn-warning" @click="modalShow=true">
+					<button  id="btnAgregarUser" type="button"  data-toggle="modal" data-target="#modalUsuarios"  class="btn btn-info" @click="modalShow=true">
 					  Agregar <i class="fas fa-plus"></i>
 					</button>					
 					<!-- Modal -->
