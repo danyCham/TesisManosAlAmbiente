@@ -1,0 +1,60 @@
+<=======================2020-09-06 08:47:30==================>
+Server error: `GET http://192.168.100.139:3000/api/v1.0/material/0/4` resulted in a `500 Internal Server Error` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: mater (truncated...)
+
+<===========================================================>
+<=======================2020-09-06 08:48:11==================>
+Server error: `GET http://192.168.100.139:3000/api/v1.0/material/0/4` resulted in a `500 Internal Server Error` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: mater (truncated...)
+
+<===========================================================>
+<=======================2020-09-06 08:49:28==================>
+Server error: `GET http://192.168.100.139:3000/api/v1.0/material/0/4` resulted in a `500 Internal Server Error` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: mater (truncated...)
+
+<===========================================================>
+<=======================2020-09-06 08:50:37==================>
+Server error: `GET http://192.168.100.139:3000/api/v1.0/material/0/4` resulted in a `500 Internal Server Error` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: mater (truncated...)
+
+<===========================================================>
+<=======================2020-09-06 23:45:21==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>

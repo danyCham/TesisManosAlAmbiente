@@ -21,7 +21,7 @@
    	 	   	  <div class="card-body">
    	 	   	  	<div class="form-group text-center">
 						   	    		<!-- Button trigger modal -->
-					<button  id="btnAgregarPost" style="display:{{session()->get('rol')=='Administrador'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
+					<button  id="btnAgregarPost" style="display:{{session()->get('rol')!='Artista'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
 					  Agregar <i class="fas fa-plus"></i>
 					</button>
                     
@@ -126,13 +126,14 @@
 					           </div>
 					         </form>
 					      </div>
-					      <div class="modal-footer">					       
+					      <div class="modal-footer">
+                            <button type="button" style="display:{{session()->get('rol')!='Cliente'?'none':'compact'}}" id="btnOfertarPost" class="btn btn-primary">Ofertar<i class="fas fa-save"></i> </button>					       
 					         <button type="button" id="btnSavePost" class="btn btn-primary">Guardar <i class="fas fa-save"></i> </button>
 					         <button type="button" id="btnClosePost" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fas fa-close"></i> </button>
 					      </div>
 					    </div>
 					  </div>
-					</div>
+					</div>                    
 	   	    	</div>
    	 	   	  	<div>                    
    	 	   	  		<table id="tblPost" class="table table-responsive table-hover table-striped" width="98%">
@@ -275,7 +276,7 @@
     $("#btnSavePost").on("click",function(){         
         if($("#modoConsulta").val()==="S"){
                 
-                if($("#imagen").val().length>0){
+            if($("#imagen").val().length>0){
 
                 const fd = new FormData();
                 let file = document.getElementById("imagen").files[0];

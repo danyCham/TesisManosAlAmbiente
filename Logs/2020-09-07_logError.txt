@@ -1,0 +1,507 @@
+<=======================2020-09-07 01:58:10==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:14==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:16==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:17==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:17==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:21==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:29==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 01:58:30==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:05:09==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:06:59==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:41==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:42==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:42==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:43==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:43==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:45==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:45==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:15:59==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:16:00==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:16:00==================>
+Client error: `MATERIAL http://192.168.100.139:3000/api/v1.0/material` resulted in a `400 Bad Request` response
+<===========================================================>
+<=======================2020-09-07 02:59:49==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/material/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 02:59:56==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/material/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:03:08==================>
+Undefined index: respuesta
+<===========================================================>
+<=======================2020-09-07 03:09:45==================>
+Undefined index: respuesta
+<===========================================================>
+<=======================2020-09-07 03:11:46==================>
+Undefined index: respuesta
+<===========================================================>
+<=======================2020-09-07 03:16:20==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:22:16==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:28:11==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:29:24==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:30:07==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:30:38==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:43:37==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 03:44:30==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 04:39:17==================>
+Server error: `GET http://192.168.100.139:3000/api/v1.0/catalogo/8` resulted in a `500 Internal Server Error` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>TypeError: verif (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 06:03:30==================>
+cURL error 7: Failed to connect to 192.168.100.139 port 3000: Connection refused (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)
+<===========================================================>
+<=======================2020-09-07 06:03:33==================>
+cURL error 7: Failed to connect to 192.168.100.139 port 3000: Connection refused (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)
+<===========================================================>
+<=======================2020-09-07 10:56:51==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:25:51==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:30:26==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:34:31==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:36:05==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:39:44==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:40:00==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:40:08==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:41:04==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:45:48==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:46:12==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:46:19==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:46:55==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:52:58==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:53:12==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:54:55==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:57:34==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:57:48==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 11:58:57==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 12:04:47==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 12:06:52==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 12:08:14==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 12:09:11==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 12:09:25==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>
+<=======================2020-09-07 12:09:32==================>
+Client error: `GET http://192.168.100.139:3000/api/v1.0/donacion/10/4` resulted in a `404 Not Found` response:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/ (truncated...)
+
+<===========================================================>

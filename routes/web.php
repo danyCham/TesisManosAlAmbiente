@@ -60,12 +60,33 @@ Route::post('/seguridad/asignacionmenurol/mantenimiento','AsignacionMenuControll
 
 /*==========================================================*/
 
+/* rutas del modulo de Catalogo */
+/*==========================================================*/
+Route::get('/seguridad/catalogo','CatalogoController@index')->name('catalogo.index');
+Route::get('/seguridad/catalogo/consultar','CatalogoController@consultarCatalogo')->name('catalogo.consultar');
+Route::get('/seguridad/catalogo/consultar/general','CatalogoController@consultarCatalogoGeneral')->name('catalogoGeneral.consultar');
+Route::post('/seguridad/catalogo/mantenimiento','CatalogoController@mantenimiento')->name('catalogo.mantenimiento');
+/*==========================================================*/
+
 /* rutas del modulo de post */
 /*==========================================================*/
 Route::get('/galeria/post','PostController@index')->name('post.index');
 Route::get('/galeria/post/consultar','PostController@consultarPostGeneral')->name('post.consultaGeneral');
 Route::get('/galeria/post/consultar/administracion','PostController@consultarPost')->name('post.consultar');
 Route::post('/galeria/post/mantenimiento','PostController@mantenimiento')->name('post.mantenimiento');
+/*==========================================================*/
 
+/* rutas del modulo de donaciones */
+/*==========================================================*/
+Route::get('/donaciones/donacion','DonacionController@index')->name('donacion.index');
+Route::get('/donaciones/donacion/consultar','DonacionController@consultarDonacion')->name('donacion.consultar');
+Route::post('/donaciones/donacion/mantenimiento','DonacionController@mantenimiento')->name('donacion.mantenimiento');
+/*==========================================================*/
 
+/* rutas del modulo de Materiales */
+/*==========================================================*/
+Route::get('/donaciones/materiales','MaterialController@index')->name('material.index');
+Route::get('/donaciones/materiales/consultar','MaterialController@consultarMaterial')->name('material.consultar');
+Route::get('/donaciones/materiales/consultar/general','MaterialController@consultarMaterialGeneral')->name('materialGeneral.consultar');
+Route::post('/donaciones/materiales/mantenimiento','MaterialController@mantenimiento')->name('material.mantenimiento');
 /*==========================================================*/

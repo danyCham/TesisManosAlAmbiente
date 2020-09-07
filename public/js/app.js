@@ -2137,7 +2137,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.PathImagen !== '') {
           var fd = new FormData();
           fd.append('image', this.file, this.PathImagen);
-          axios.post('http://192.168.100.52:3000/api/v1.0/uploadImage', fd).then(function (data) {
+          axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage', fd).then(function (data) {
             console.log(data);
           })["catch"](function (data) {
             console.log(data);
@@ -2222,7 +2222,7 @@ __webpack_require__.r(__webpack_exports__);
       this.EstadoUsuario = usuario['estado_usuario'] === 'ACTIVO' ? '1' : '2';
     },
     limpiarPantalla: function limpiarPantalla() {
-      this.modalShow = false;
+      //this.modalShow=false
       this.idUsuario = 0;
       this.IdRol = 1;
       this.Nombres = '';
@@ -38468,8 +38468,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/vue-axios-cors/index.js":
 /*!**********************************************!*\
   !*** ./node_modules/vue-axios-cors/index.js ***!
@@ -39374,7 +39372,6 @@ module.exports = {
 
 /***/ }),
 
->>>>>>> 19f0d8d944b849614bfddc72f03fbc5bff93cfe5
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Usuario.vue?vue&type=template&id=0890d593&":
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Usuario.vue?vue&type=template&id=0890d593& ***!
@@ -53194,7 +53191,8 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_paginate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-paginate */ "./node_modules/vue-paginate/dist/vue-paginate.js");
 /* harmony import */ var vue_paginate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_paginate__WEBPACK_IMPORTED_MODULE_0__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-axios-cors'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var vue_axios_cors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios-cors */ "./node_modules/vue-axios-cors/index.js");
+/* harmony import */ var vue_axios_cors__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_axios_cors__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -53203,7 +53201,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.use(vue_paginate__WEBPACK_IMPORTED_MODULE_0___default.a);
-Vue.use(!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-axios-cors'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+Vue.use(vue_axios_cors__WEBPACK_IMPORTED_MODULE_1___default.a);
 Vue.component('usuario', __webpack_require__(/*! ./components/Usuario.vue */ "./resources/js/components/Usuario.vue")["default"]);
 /**
  const app para compilar los archivos vueJs
@@ -53354,7 +53352,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\IsaiasIvan\Documents\ProyectosAparte\TesisManosAlAmbiente\TesisManosAlAmbiente\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Chamaidan\Documents\ProyectoDeEmprendimiento\TESISManosAlAmbiente\webAppManosAlAmbiente\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

@@ -88,7 +88,7 @@
 	<script src="{{asset('js/owl.js')}}"></script>
 	<script src="{{asset('js/wow.js')}}"></script>
 	<script src="{{asset('js/script.js')}}"></script>
-    <script src="{{asset('js_/axios.min.js')}}"></script>
+  <script src="{{asset('js_/axios.min.js')}}"></script>
     @yield('scripts')
 </body>
 </html>

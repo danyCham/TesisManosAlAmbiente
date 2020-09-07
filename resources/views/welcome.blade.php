@@ -1,62 +1,44 @@
 @extends('layouts.app')
 @section('content')
-   
-    <!--Recent Projects Section-->    
+
     <section class="recent-projects">
-        <div class="auto-container">            
+        <div class="auto-container"> 
             <div class="sec-title clearfix">
                 <div class="pull-left">
-                    <h2>Conoce los ultimos <span class="normal-font theme_color">Projectos</span></h2>
-                    <div class="text">Este este tu momento de ser parte de nuestro grupo en pro del medio ambiente</div>
+                    <h2>Conoce los ultimos <span class="normal-font theme_color">Proyectos</span></h2>
+                    <div class="text">Este es tu momento de ser parte de nuestro grupo en pro del medio ambiente</div>
                 </div>
-            </div>
-            <div id="carousel" class="carousel slide" data-ride="carousel">
+            </div>         
+          <div id="carousel" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
+               @foreach($Post as $item)
+                  <li data-target="#carousel" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+               @endforeach
               </ol>
-              <div class="carousel-inner">        
-                <div class="carousel-item active">
-                    <div class="view">
-                        <a href="#"><img class="d-block w-100" src="{{asset('images/resource/featured-image-1.jpg')}}" alt="First slide"/></a>
-                        <div class="mask rgba-black-light"></div> 
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">Project Name</h3>
-                        <p>Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="view">
-                        <a href="#"><img class="d-block w-100" src="{{asset('images/resource/featured-image-2.jpg')}}" alt="Second slide"/></a>
-                        <div class="mask rgba-black-light"></div> 
-                    </div>
-                  <div class="carousel-caption">
-                    <h3 class="h3-responsive">Project Name</h3>
-                    <p>Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</p>
-                  </div>                  
-                </div>
-                <div class="carousel-item">
-                    <div class="view">
-                        <a href="#"><img class="d-block w-100" src="{{asset('images/resource/featured-image-3.jpg')}}" alt="Third slide"/></a>
-                        <div class="mask rgba-black-light"></div> 
-                    </div>
-                  <div class="carousel-caption">
-                    <h3 class="h3-responsive">Project Name</h3>
-                    <p>Lorem ipsum dolor sit amet et siu amet amet audiam copiosaei mei purto dolor timeam mea ne.</p>
-                  </div>                  
-                </div>
-                  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                 </a>
+
+              <div class="carousel-inner" role="listbox">
+                @foreach($Post as $item)
+                   <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                       <img class="d-block img-fluid" src="{{$item['imagen_post']}}" alt="{{$item['titulo']}}">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h1 style="text-shadow: 2px 2px 5px orange;" class="font-weight-bold">{{$item['titulo']}}</h1>
+                            <p style="text-shadow: 2px 2px 5px red;">Descripcion:{{$item['descripcion']}}</p>
+                            <p style="text-shadow: 2px 2px 5px red;">Categoria: {{$item['tipo_post']}}</p>
+                                                     
+                          </div>
+                   </div>
+                @endforeach
+              </div>                
+              <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+             </a>
             </div>
-        </div>
+          </div>
     </section>
     
     <!--Main Features-->

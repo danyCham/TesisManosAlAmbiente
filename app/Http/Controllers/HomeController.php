@@ -14,10 +14,12 @@ use App\Http\Controllers\PostController;
 class HomeController extends Controller {
    
    public function index(){
-      return view('welcome');
+      $post = new PostController();
+      $datos = $post->consultarPostGeneral();      
+      return view('welcome')->with(['Post'=>$datos]);
    }
 
-   public function proyectos(){
+   public function proyectos(){      
       return view('proyectos');
    }
 

@@ -25,7 +25,7 @@ class PostController extends Controller{
    public function index(){ 
         if(session()->get('OK')== 'true'){
         $valida = new Utils();
-        return $valida->validarAutorizacion("Post","modules.galeria.post");
+          return $valida->validarAutorizacion("Post","modules.galeria.post");
         }
         else{
             return view('login');

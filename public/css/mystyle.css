@@ -133,3 +133,14 @@ form:after {
     float: left;
     font-size: 14px;
 }
+
+.carousel-inner img {
+    width: 85%;
+    max-height: 460px;
+    display: block; 
+    padding-left: 150px;
+}
+
+.carousel-inner{
+ height: 450px;
+}

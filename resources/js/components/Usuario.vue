@@ -225,7 +225,7 @@ export default {
 				if(this.PathImagen !== ''){
 					const fd = new FormData();				 
 					fd.append('image',this.file, this.PathImagen);						 
-					axios.post('http://192.168.100.52:3000/api/v1.0/uploadImage',fd)			        
+					axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd)			        
 					.then((data)=>{
 						console.log(data);
 					}).catch((data)=>{
@@ -312,7 +312,7 @@ export default {
 			  this.EstadoUsuario =  usuario['estado_usuario'] === 'ACTIVO' ? '1' :'2'
 		},
 		limpiarPantalla(){
-			  this.modalShow=false
+			  //this.modalShow=false
 			  this.idUsuario = 0
               this.IdRol = 1
 			  this.Nombres = ''

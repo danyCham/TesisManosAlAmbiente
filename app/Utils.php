@@ -46,4 +46,23 @@ class Utils
 				return redirect()->route('usuario.noautorizado');
 			}			
 	  }
+
+	  public function validarAutorizacionDatos($pantalla,$ruta,$datoMaterial,$datoCatalogo){
+	 	    $array = session()->get('SubMenu');
+			$valida = false;
+			$modoConsulta = "S";
+			foreach ($array as $value){               
+               if($value['NombreSubMenu'] == $pantalla){
+               	 $valida = true;
+               	 $modoConsulta = $value['gestion'];
+               }               
+			}
+			
+			if($valida){
+			  return view($ruta)->with(['data'=> $modoConsulta,'datoMaterial'=>$datoMaterial,'datoCatalogo'=>$datoCatalogo]);
+			}
+			else{
+				return redirect()->route('usuario.noautorizado');
+			}			
+	  }
 }
