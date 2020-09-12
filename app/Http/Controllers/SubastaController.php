@@ -10,7 +10,7 @@ use GuzzleHttp\Middleware;
 use App\Utils;
 use Exception; 
 
-class PostController extends Controller{
+class SubastaController extends Controller{
 
    //variable interna para la instancia del cliente para consumir api rest
    protected $cliente;
@@ -24,21 +24,18 @@ class PostController extends Controller{
 
    public function index(){ 
         if(session()->get('OK')== 'true'){
-        $valida = new Utils();
+          $valida = new Utils();
 
-          $catalogo = new CatalogoController();
-          $datoscatalogo = $catalogo->consultarCatalogoGeneral();
-
-          return $valida->validarAutorizacionCatalogos("Post","modules.galeria.post", $datoscatalogo);
+          return $valida->validarAutorizacion("Post","modules.galeria.subasta");
         }
         else{
             return view('login');
         }
    }
    
-   public function consultarPostGeneral(){
+   public function consultarSubastaGeneral(){
     try {    
-        $res = $this->cliente->request('GET', $this->baseUrl.'post/0/8');
+        $res = $this->cliente->request('GET', $this->baseUrl.'subasta/0/4');
           
          $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
          $array = json_decode($response,true);
@@ -52,7 +49,7 @@ class PostController extends Controller{
       }
    }
 
-   public function consultarPost(){
+   public function consultarSubasta(){
     try {
         $rol =  session()->get('rol');
         $opcion = $rol == 'Administrador' ? '8' :  ($rol == 'Artista' ? '6' : '4');

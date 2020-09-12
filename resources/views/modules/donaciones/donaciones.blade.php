@@ -49,51 +49,49 @@
                                     <input type="text" name="idDonaciones" id="idDonaciones" value="-1" >
                                 </div>
                             </div>
-                            <div class="col-6" style="display: none;">
+                            <div class="form-row col-3" style="display: none;">
                                 <div class="form-group" >
                                     <label>IdUsuario:</label>
                                     <input type="text" name="idCliente" id="idCliente" value="0" >
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="form-row col-3">
                                 <div class="form-group" style="display: none;">
                                     <label>Cedula:</label>
                                     <input type="text" name="cedula" id="cedula" value="0" >
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="form-row col-3">
                                 <div class="form-group">
                                     <label for="">Nombre del material</label>
-                                    <select name="idMaterial" id="idMaterial" class="form-control">
+                                    <select name="idMaterial" id="idMaterial" class="form-control" onchange="colocarValor()">
                                         <option  value="">Seleccione</option>
                                         @foreach($datoMaterial as $value)
-                                            <option value="{{$value['id_material']}}">{{$value['nombre']}}</option>
+                                            <option precio="{{$value['precio']}}" medida="{{$value['medida_peso']}}" imagen = "{{$value['imagen_material']}}" value="{{$value['id_material']}}">{{$value['nombre']}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             
-                            <div class="col-6">
+                            <div class="form-row col-3">
                                 <div class="form-group">
-                                    @foreach($datoMaterial as $value)
+                                    
                                     <label for="">Medida de peso</label>
-                                    <input value="{{$value['medida_peso']}}" id="medida" name = "medida" type="text" class="form-control" readonly>
-                                    @endforeach
+                                    <input id="medida" name = "medida" type="text" class="form-control" readonly>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="form-row col-3">
                                 <div class="form-group">
                                     <label for="">Precio por medida de peso</label>
-                                    <input value="{{$value['precio']}}" id="precio" type="text" class="form-control" readonly>
+                                    <input id="precio" name ="precio" type="text" class="form-control" readonly>
                                 </div>
                             </div>
-                            <div class="form-row col-6">
-                              <label>Imagen del material:</label>
-                                <img src="{{$value['imagen_material']}}" id="imagenMaterial" style = "width:150px;heigth:150;">
-                                <input type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">
+                            <div class="form-row col-3">
+                                <label>Imagen del material:</label>
+                                <img src=""  id="imagenMaterial" style = "width:150px;heigth:150;">
                             </div>
                             
-                            <div class="col-6">
+                            <div class="form-row col-3">
                                 <div class="form-group">
                                     <label for="">Tipo de entrega</label>
                                     <select name="tipo_entrega" id="tipo_entrega" class="form-control">
@@ -107,11 +105,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="form-row col-3">
                                 <div class="form-group">
                                     <label for="">Estado</label>
                                     <select name="estado" id="estado" class="form-control">
-                                        <option value="">Seleccione</option>                                        
+                                        <option value="">Seleccione</option>
                                          @if(session()->get('rol')=='Administrador')
                                              @foreach($datoCatalogo as $item)
                                                  @if($item['nombre'] == 'ESTADO_DONACION')
@@ -126,13 +124,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="form-row col-3">
                                 <div class="form-group">
                                     <label for="">Cantidad en medida de peso</label>
                                     <input type="number" name="Cantidad" id="Cantidad" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-3" style="display:{{session()->get('rol')=='Administrador'?'inline':'none'}}">
+                            <div class="form-row col-3" style="display:{{session()->get('rol')=='Administrador'?'inline':'none'}}">
                                 <div class="form-group">
                                     <label for="">Valor total</label>
                                     <input type="number" name="Valor" id="Valor" value= "0" class="form-control">
@@ -155,8 +153,10 @@
                 <thead style="background-color: #0d967d;color:white;">        
                 <th>Cod. Donacion</th>
                 <th>Cod. Usuario</th>  
-                        <th>Nombre</th>           
-                        <th>Tipo Entrega</th>   
+                        <th>Nombre</th>
+                <th>Cod. tipoEntre</th>            
+                        <th>Tipo Entrega</th> 
+                <th>Cod. Estado</th>   
                         <th>Estado</th>
                 <th>Cod. Material</th> 
                         <th>Material</th>
@@ -216,7 +216,9 @@
             {name:'id_donaciones',data:'id_donaciones'},
             {name:'id_usuario',data:'id_usuario'},
             { name:'nombre',data:'nombre'},
+            { name:'id_tipo_entrega',data:'id_tipo_entrega'},
             { name:'tipo_entrega',data:'tipo_entrega'},
+            { name:'id_estado',data:'id_estado'},
             { name:'estado',data:'estado'}, 
             { name:'id_material',data:'id_material'}, 
             { name:'material',data:'material'}, 
@@ -240,12 +242,16 @@
         columnDefs: [
             {'targets':[0],'visible':false,'searchable':false},
             {'targets':[1],'visible':false,'searchable':false},
+            {'targets':[3],'visible':false,'searchable':false},
             {'targets':[5],'visible':false,'searchable':false},
+            {'targets':[7],'visible':false,'searchable':false},
             {'targets':[9],'visible':false,'searchable':false},
             {'targets':[11],'visible':false,'searchable':false},
             {'targets':[13],'visible':false,'searchable':false},
             {'targets':[14],'visible':false,'searchable':false},
+            {'targets':[15],'visible':false,'searchable':false},
             {'targets':[16],'visible':false,'searchable':false},
+            {'targets':[18],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
@@ -258,9 +264,12 @@
         $("#idDonaciones").val(data.id_donaciones);
         $("#idCliente").val(data.id_usuario);
         $("#idMaterial").val(data.id_material);
+        $("#precio").val(data.precio_medida);
+        $("#medida").val(data.medida_peso);
         $("#cedula").val(data.cedula);
-        $("#tipo_entrega").val(data.tipo_entrega);
-        $("#estado").val(data.estado);
+        $("#imagenMaterial").attr('src',data.imagen_material);
+        $("#tipo_entrega").val(data.id_tipo_entrega);
+        $("#estado").val(data.id_estado);
         $("#Cantidad").val(data.cantidad_registrada);
         $("#Valor").val(data.valor);
         var opcion = "0";        
@@ -333,6 +342,16 @@
         
     });
    });
+    function colocarValor() {
+        let precio = $("#idMaterial option:selected").attr("precio");
+        $("#precio").val(precio);
+
+        let medida = $("#idMaterial option:selected").attr("medida");
+        $("#medida").val(medida);
+
+        let imagen = $("#idMaterial option:selected").attr("imagen");
+        $("#imagenMaterial").attr('src',imagen);
+    }
 </script>
 
 @endsection

@@ -1,11 +1,11 @@
 @extends('../../../layouts.main')
 @section('content_route')
      <div class="col-sm-6">
-       <i> <h1 class="m-0 text-dark">Post</h1> </i>
+       <i> <h1 class="m-0 text-dark">Subasta</h1> </i>
      </div> 
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">           
-          <li class="breadcrumb-item active">Galería->Post</li>
+          <li class="breadcrumb-item active">Galería->Subasta</li>
         </ol>
       </div> 
 @endsection
@@ -20,10 +20,6 @@
    	 	 	</div>
    	 	   	  <div class="card-body">
    	 	   	  	<div class="form-group">
-						   	    		<!-- Button trigger modal -->
-					<button  id="btnAgregarPost" style="display:{{session()->get('rol')=='Cliente'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
-					  Agregar <i class="fas fa-plus"></i>
-					</button>
                     
 					<!-- Modal -->
 					<div class="modal fade" id="modalPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -42,7 +38,7 @@
 					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
 					         		<label>idPost:</label>
 					         		<input type="text" name="idPost" id="idPost" value="0" >					         		 
-					         	</div>                                
+					         	</div>
                                 <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <h4 class="modal-title">Datos del artista</h4>                                  
                                 </div>
@@ -71,15 +67,6 @@
                                     <h4 class="modal-title">Datos del post</h4>                     
                                 </div>
 
-                                <div class="form-row col-lg-12 col-sm-12">
-                                    <label>Imagen:</label>
-                                     <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
-                                     <img src="" id="imagenMostrar" style = "width:200px;heigth:200;">    
-                                     <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="PathImagen" id="PathImagen" class="form-control">      
-                                      <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">   
-                                      <input  style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">                            
-                                </div>
-
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Título:</label>
 					         		<input type="text" id="Titulo" name="Titulo" class="form-control">		         		 
@@ -92,27 +79,7 @@
 
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Tipo Post:</label>
-					         		<select  id="TipoPost" name="TipoPost" class="form-control">
-                                       <option value="">Seleccione</option>
-                                           @foreach($datoCatalogo as $item)
-                                             @if($item['nombre'] == 'TIPO_POST')
-                                             @if(session()->get('rol')=='Administrador')
-                                                 @if($item['detalle'] =='PROYECTO') 
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                 @endif
-                                             @else
-                                                 @if($item['detalle'] !='PROYECTO') 
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                 @endif
-                                             @endif
-                                            @endif
-                                            @endforeach
-                                     </select>					         		 
-					         	</div>
-
-                                 <div class="form-row col-lg-8 col-sm-12" style="display:{{session()->get('rol')=='Administrador'?'inline':'none'}}">
-					         		<label>Observación:</label>
-					         		<input type="text" id="Observacion" name="Observacion"  class="form-control">		         		 			         		 
+                                    <input type="text" id="TipoPost" name="TipoPost" class="form-control">				         		 
 					         	</div>
 
                                 <div class="form-row col-lg-4 col-sm-12">
@@ -132,16 +99,7 @@
 
                                 <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Tipo Arte:</label>
-                                     <input type="number" id="idArte" hidden name="idArte" value="0" class="form-control">	
-					         		<select  id="TipoArte" name="TipoArte" class="form-control">
-                                        <option value="">Seleccione</option>
-                                           @foreach($datoCatalogo as $item)
-                                             @if($item['nombre'] == 'TIPO_ARTE') 
-                                            <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
-                                            </option>
-                                            @endif
-                                            @endforeach
-                                     </select>					         		 
+                                    <input type="number" id="TipoArte" name="TipoArte" class="form-control"> 					         		 
 					         	</div>
                                  <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Fecha Inicio :</label>
@@ -152,32 +110,36 @@
 					         		<label>Fecha Fin :</label>
 					         		<input type="date" id="FechaFin" name="FechaFin" class="form-control">		         		 			         		 
 					         	</div>
+
+                                <div class="form-row col-lg-4 col-sm-12">
+					         		<label>Valor :</label>
+					         		<input type="number" id="Valor" name="Valor" class="form-control">		         		 			         		 
+					         	</div>
+
                                  <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}">
 					         		<label>Estado:</label>
-					         		<select  id="Estado" name="Estado" class="form-control">
-                                        <option value="">Seleccione</option>
-                                        @if(session()->get('rol')=='Administrador')
-                                             @foreach($datoCatalogo as $item)
-                                                 @if($item['nombre'] == 'ESTADO_POST')
-                                                <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
-                                                </option>
-                                                @endif
-                                             @endforeach
-                                         @else                                         
-                                          <option value="6">PENDIENTE</option>
-                                         @endif                                        
-					         		</select>					         		 
+                                    <input type="number" id="Estado" name="Estado" class="form-control">
 					         	</div>
-                                <div class="form-row col-lg-4 col-sm-12">
-                                    <label>Valor del arte :</label>
-                                    <input type="number" id="Valor" name="Valor" class="form-control">                                                     
+
+                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                                    <label>Oferta Subasta :</label>
+                                    <input type="number" id="oferta" name="oferta" class="form-control">
                                 </div>
+
+                                <div class="form-row col-lg-12 col-sm-12">
+					         		<label>Imagen:</label>
+                                     <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
+                                     <img src="" id="imagenMostrar" style = "width:150px;heigth:150;">    
+					         		 <input type="text" hidden name="PathImagen" id="PathImagen" class="form-control">		
+                                      <input type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">	
+                                      <input type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">			         		 
+					         	</div>                               
+
 					           </div>
 					         </form>
 					      </div>
 					      <div class="modal-footer">
-                            <button type="button" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}" id="btnCotizaPost" class="btn btn-success">Cotiza <i class="fi-fire"></i> </button>				       
-					         <button type="button" style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" id="btnSavePost" class="btn btn-primary">Guardar <i class="fas fa-save"></i> </button>
+                             <button type="button" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}" id="btnSavePost" class="btn btn-primary">Ofertar <i class="fas fa-save"></i> </button>
 					         <button type="button" id="btnClosePost" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fas fa-close"></i> </button>
 					      </div>
 					    </div>
@@ -186,31 +148,27 @@
 	   	    	</div>
    	 	   	  	<div>                    
    	 	   	  		<table id="tblPost" class="table table-responsive table-hover table-striped" width="98%">
-   	 	   	  		<thead style="background-color: #0d967d;color:white;">
-                        <th>Cod artista</th>
+   	 	   	  		<thead style="background-color: #0d967d;color:white;"> 
                         <th>Nombre artista</th>
                         <th>email</th>
                         <th>telefono</th>
                         <th>foto Artista</th>
-		        		<th>Cod. Post</th>	
+		        		<th>Cod. Subasta</th>	
                         <th>Título</th>	        	
-		        		<th>Descripción</th> 
-                        <th>Cod. Estado</th>  
-		        		<th>Estado</th>	
-                        <th>Cod. TipoPost</th>        	 
-		        		<th>Tipo Post</th>
-                        <th>idArte</th>  
+		        		<th>Descripción</th>   
+		        		<th>Estado</th>	        	 
+		        		<th>Tipo Post</th>   
 		        		<th>Cod. Imagen</th>  
 		        		<th>Imagen</th>		 
                         <th>PathImagen</th>	        
 		        		<th>Material</th>
                         <th>Alto</th>
-		        		<th>Ancho</th>                        
-                        <th>Cod. TipoArte</th>
+		        		<th>Ancho</th>
                         <th>Tipo Arte</th>
+                        <th>Valor Inicial</th>
+                        <th>Valor Actual</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
-                        <th>Valor</th>
 		        		<th>Acción</th>    
 		        	  </thead>
    	 	   	  	</table>
@@ -249,24 +207,20 @@
             }
         },
         ajax: {
-            'url':'{{route("post.consultar")}}',
+            'url':'{{route("subasta.consultar")}}',
         },
         dom : 'Bfrtip',
         buttons: [],
         columns:[
-            {name:'id_usuario',data:'id_usuario'},     
             {name:'nombreArtista',data:'nombreArtista'},
             { name:'email',data:'email'},
             {name:'telefono',data:'telefono'},
             { name:'imagen_artista',data:'imagen_artista'},            
-            {name:'id_post',data:'id_post'},
+            {name:'id_oferta',data:'id_oferta'},
             { name:'titulo',data:'titulo'},
             {name:'descripcion',data:'descripcion'},
-            { name:'id_estado',data:'id_estado'},
-            { name:'estado',data:'estado'},
-            { name:'id_tipo_post',data:'id_tipo_post'},
-            { name:'tipo_post',data:'tipo_post'},
-            { name:'id_arte',data:'id_arte'},                 
+            { name:'estado_subasta',data:'estado_subasta'},
+            { name:'tipo_post',data:'tipo_post'},                
             { name:'id_imagen',data:'id_imagen'},
             {
                 "data":"imagen_post",
@@ -277,32 +231,31 @@
             { name:'imagen_post',data:'imagen_post'},     
             { name:'material_art',data:'material_art'},
             { name:'alto_art',data:'alto_art'},   
-            { name:'ancho_art',data:'ancho_art'},            
-            { name:'id_etiqueta',data:'id_etiqueta'},          
-            { name:'etiqueta_arte',data:'etiqueta_arte'},           
+            { name:'ancho_art',data:'ancho_art'},           
+            { name:'categoria',data:'categoria'},
+            { name:'cantidad_min',data:'cantidad_min'},
+            { name:'cantidad_max',data:'cantidad_max'},           
             { name:'fecha_ini',data:'fecha_ini'}, 
-            { name:'fecha_fin',data:'fecha_fin'}, 
-            { name:'valor_ini',data:'valor_ini'},
+            { name:'fecha_fin',data:'fecha_fin'},            
             {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarPost' > <i class='fas fa-edit' > </i> </button> "   }                 
         ],     
         columnDefs: [
-            {'targets':[0],'visible':false,'searchable':false},       
+            {'targets':[0],'visible':false,'searchable':false},
+            {'targets':[1],'visible':false,'searchable':false},       
             {'targets':[2],'visible':false,'searchable':false},
             {'targets':[3],'visible':false,'searchable':false},
             {'targets':[4],'visible':false,'searchable':false},
-            {'targets':[5],'visible':false,'searchable':false},
-            {'targets':[7],'visible':false,'searchable':false},
-            {'targets':[8],'visible':false,'searchable':false}, 
+            {'targets':[6],'visible':false,'searchable':false},       
             {'targets':[9],'visible':false,'searchable':false},
-            {'targets':[10],'visible':false,'searchable':false},
-            {'targets':[12],'visible':false,'searchable':false},            
+            {'targets':[11],'visible':false,'searchable':false},
+            {'targets':[12],'visible':false,'searchable':false},
             {'targets':[13],'visible':false,'searchable':false},
+            {'targets':[14],'visible':false,'searchable':false},
             {'targets':[15],'visible':false,'searchable':false},
             {'targets':[16],'visible':false,'searchable':false},
             {'targets':[17],'visible':false,'searchable':false},
             {'targets':[18],'visible':false,'searchable':false},
             {'targets':[19],'visible':false,'searchable':false},
-            {'targets':[20],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
@@ -311,44 +264,44 @@
 
     $("#tblPost tbody").on("click","#btnEditarPost",function(){
         var data = dataTablePost.row($(this).parents("tr")).data();
-        
         $("#modalPost").modal('show');
         $("#Nombre").val(data.nombreArtista);
         $("#Correo").val(data.email);
         $("#Telefono").val(data.telefono);
         $("#imagenArtistaMostrar").attr('src',data.imagen_artista); 
         $('#imagenArtistaMostrar').prop('style', 'width:150px;heigth:150;margin:auto auto;');
-        $("#idPost").val(data.id_post);
-        $("#idArte").val(data.id_arte);
-        $("#Estado").val(data.id_estado);
+        $("#idPost").val(data.id_oferta);
         $("#idImagen").val(data.id_imagen);
         $("#Titulo").val(data.titulo);
-        $("#Descripcion").val(data.descripcion);        
-        $("#TipoPost").val(data.id_tipo_post);         
+        $("#Descripcion").val(data.descripcion);
+        $("#TipoPost").val(data.tipo_post);         
         $("#MaterialUsado").val(data.material_art);
         $("#Alto").val(data.alto_art);
         $("#Ancho").val(data.ancho_art);
-        $("#TipoArte").val(data.id_etiqueta);
+        $("#TipoArte").val(data.categoria);
+        $("#ValorInc").val(data.cantidad_min);
+        $("#ValorFin").val(data.cantidad_max);
         $("#FechaInicio").val(data.fecha_ini);
-        $("#FechaFin").val(data.fecha_fin);
-        $("#Valor").val(data.valor_ini);        
+        $("#FechaFin").val(data.fecha_fin);                
         $("#imagenMostrar").attr('src',data.imagen_post); 
         $('#imagenMostrar').prop('style', 'width:150px;heigth:150;margin:auto auto;');
-        
+        var estado = "0";
+        if(data.estado_subasta==="PENDIENTE"){
+            estado = "6"
+        }if(data.estado_subasta==="ACTIVO"){
+            estado = "7"
+        }
+        if(data.estado_subasta==="INACTIVO"){
+            estado = "8"
+        }        
+        $("#Estado").val(estado);
         if( "{{session()->get('rol')}}" === "Cliente"){    
-            $("#Opcion").val('5');
+            $("#Opcion").val('3');
             bloquearCampos();
-        }else if( "{{session()->get('rol')}}" === "Administrador"){    
-            $("#Opcion").val('5');
-
-            if("{{session()->get('idUsuario')}}" === data.id_usuario){
-
-            } else {
-               bloquearCampos(); 
-            }            
+        }else if( "{{session()->get('rol')}}" === "Administrador"){
+            bloquearCampos();
         }else{
             $("#Estado").prop('disabled',true);
-            $("#Opcion").val('3');
         }
     });
 
@@ -375,7 +328,7 @@
                 desbloquearCampos();
                 $.ajax({
                 type: 'POST', 
-                url: '{{route("post.mantenimiento")}}',
+                url: '{{route("subasta.mantenimiento")}}',
                 data: $('#frmPost').serialize(),
                 success: function (data) { 
                     console.log(data);
@@ -463,9 +416,12 @@
         $("#FechaInicio").prop('disabled',true);
         $("#FechaFin").prop('disabled',true);
         $("#Valor").prop('disabled',true);        
-        //$("#imagen").prop('disabled',true);      
+        $("#imagen").prop('disabled',true);      
     }
     function desbloquearCampos(){
+        $("#Nombre").prop('disabled',false);
+        $("#Correo").prop('disabled',false);
+        $("#Telefono").prop('disabled',false);
         $("#Titulo").prop('disabled',false);
         $("#Descripcion").prop('disabled',false);        
         $("#TipoPost").prop('disabled',false);         

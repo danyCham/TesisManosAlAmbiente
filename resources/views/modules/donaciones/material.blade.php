@@ -1,7 +1,7 @@
 @extends('../../../layouts.main')
 @section('content_route')
      <div class="col-sm-6">
-       <i> <h1 class="m-0 text-dark">Donaciones</h1> </i>
+       <i> <h1 class="m-0 text-dark">Materiales de reciclaje</h1> </i>
      </div> 
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">           
@@ -39,15 +39,15 @@
                   <form id="frmMaterial" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                    @csrf
                    <div class="row">
-                    <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                    <div class="form-row col-lg-4 col-sm-12" style="display: none;">
                       <label>idMaterial:</label>
-                      <input type="text" name="idMaterial" id="idMaterial" value="0" >                       
+                      <input type="text" name="idMaterial" id="idMaterial">                       
                     </div>
                     <div class="form-row col-lg-4 col-sm-12">
                       <label>Nombre:</label>
                       <input type="text" id="Nombre" name="Nombre" class="form-control">                 
                     </div>
-                    <div class="form-row col-lg-8 col-sm-12">
+                    <div class="form-row col-lg-4 col-sm-12">
                       <label>Medida de peso:</label>
                       <input type="text" id="medida_peso" name="medida_peso" class="form-control">
                     </div>
@@ -57,9 +57,17 @@
                     </div>
                     <div class="form-row col-lg-4 col-sm-12">
                       <label>Estado:</label>
-                      <input type="number" id="estado" name="estado" class="form-control">
+                      <select name="estado" id="estado" class="form-control">
+                          <option value="">Seleccione</option>
+                          @foreach($datoCatalogo as $item)
+                           @if($item['nombre'] == 'ESTADO_MATERIAL') 
+                          <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
+                          </option>
+                          @endif
+                          @endforeach
+                      </select>
                     </div>
-                    <div class="form-row col-lg-12 col-sm-12">
+                    <div class="form-row col-lg-4 col-sm-12">
                       <label>Imagen:</label>
                         <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
                         <img src="" id="imagenMostrar">    

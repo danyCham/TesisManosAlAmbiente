@@ -24,8 +24,10 @@ class MaterialController extends Controller{
 
    public function index(){ 
       if(session()->get('OK')== 'true'){
-      $valida = new Utils();
-          return $valida->validarAutorizacion("Material","modules.donaciones.material");
+          $valida = new Utils();
+          $catalogo = new CatalogoController();
+          $datoscatalogo = $catalogo->consultarCatalogoGeneral();
+          return $valida->validarAutorizacionCatalogos("Material","modules.donaciones.material", $datoscatalogo);
       }
       else{
           return view('login');

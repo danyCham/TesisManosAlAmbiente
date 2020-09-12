@@ -76,6 +76,14 @@ Route::get('/galeria/post/consultar/administracion','PostController@consultarPos
 Route::post('/galeria/post/mantenimiento','PostController@mantenimiento')->name('post.mantenimiento');
 /*==========================================================*/
 
+/* rutas del modulo de Subasta */
+/*==========================================================*/
+Route::get('/galeria/subasta','SubastaController@index')->name('subasta.index');
+Route::get('/galeria/subasta/consultar','SubastaController@subastaMaterial')->name('subasta.consultar');
+Route::get('/galeria/subasta/consultar/general','SubastaController@subastaMaterialGeneral')->name('subastaGeneral.consultar');
+Route::post('/galeria/subasta/mantenimiento','SubastaController@mantenimiento')->name('subasta.mantenimiento');
+/*==========================================================*/
+
 /* rutas del modulo de donaciones */
 /*==========================================================*/
 Route::get('/donaciones/donacion','DonacionController@index')->name('donacion.index');
@@ -89,4 +97,11 @@ Route::get('/donaciones/materiales','MaterialController@index')->name('material.
 Route::get('/donaciones/materiales/consultar','MaterialController@consultarMaterial')->name('material.consultar');
 Route::get('/donaciones/materiales/consultar/general','MaterialController@consultarMaterialGeneral')->name('materialGeneral.consultar');
 Route::post('/donaciones/materiales/mantenimiento','MaterialController@mantenimiento')->name('material.mantenimiento');
+/*==========================================================*/
+
+/* rutas del modulo de Recompensa */
+/*==========================================================*/
+Route::get('/donaciones/recompensa','RecompensaController@index')->name('recompensa.index');
+Route::get('/donaciones/recompensa/consultar','RecompensaController@consultarRecompensa')->name('recompensa.consultar');
+Route::post('/donaciones/recompensa/mantenimiento','RecompensaController@mantenimiento')->name('recompensa.mantenimiento');
 /*==========================================================*/
