@@ -26,10 +26,13 @@ class PostController extends Controller{
         if(session()->get('OK')== 'true'){
         $valida = new Utils();
 
+          $material = new MaterialController();
+          $datosmateriales = $material->consultarMaterialGeneral();
+
           $catalogo = new CatalogoController();
           $datoscatalogo = $catalogo->consultarCatalogoGeneral();
 
-          return $valida->validarAutorizacionCatalogos("Post","modules.galeria.post", $datoscatalogo);
+          return $valida->validarAutorizacionDatos("Post","modules.galeria.post", $datosmateriales,$datoscatalogo);
         }
         else{
             return view('login');
@@ -81,7 +84,7 @@ class PostController extends Controller{
         'idArte' => 'required',
         'Titulo' => 'required',       
         'TipoPost' => 'required',
-        'MaterialUsado' => 'required',
+        'IdMaterial' => 'required',
         'Alto' => 'required',             
         'Ancho' => 'required',
         'TipoArte' => 'required',
@@ -98,7 +101,7 @@ class PostController extends Controller{
             'json' =>  [	
                 "p_id_arte"=>$request->input('idArte'),
                 "p_nombre"=>$request->input('Titulo'),
-                "p_material_art"=>$request->input('MaterialUsado'),
+                "p_id_material"=>$request->input('IdMaterial'),
                 "p_alto_art"=>$request->input('Alto'),
                 "p_ancho_art" =>$request->input('Ancho'),
                 "p_id_etiqueta"=>$request->input('TipoArte'),

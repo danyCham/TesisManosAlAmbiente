@@ -41,8 +41,12 @@
 					         <div class="row">
 					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
 					         		<label>idPost:</label>
-					         		<input type="text" name="idPost" id="idPost" value="0" >					         		 
-					         	</div>                                
+					         		<input type="text" name="idPost" id="idPost"  >					         		 
+					         	</div>
+                                <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                                    <label>idArte:</label>
+                                    <input type="text" name="idArte" id="idArte"  >                                  
+                                </div>                                
                                 <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <h4 class="modal-title">Datos del artista</h4>                                  
                                 </div>
@@ -82,7 +86,7 @@
 
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Título:</label>
-					         		<input type="text" id="Titulo" name="Titulo" class="form-control">		         		 
+					         		<input type="text" id="Titulo" name="Titulo" class="form-control"maxlength="50" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 
 					         	</div>
 
 					         	<div class="form-row col-lg-8 col-sm-12">
@@ -93,32 +97,33 @@
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Tipo Post:</label>
 					         		<select  id="TipoPost" name="TipoPost" class="form-control">
-                                       <option value="">Seleccione</option>
+                                       <option value="">Seleccione</option>   
                                            @foreach($datoCatalogo as $item)
                                              @if($item['nombre'] == 'TIPO_POST')
-                                             @if(session()->get('rol')=='Administrador')
-                                                 @if($item['detalle'] =='PROYECTO') 
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                 @endif
-                                             @else
+                                               @if(session()->get('rol')=='Administrador')
                                                  @if($item['detalle'] !='PROYECTO') 
                                                     <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
                                                  @endif
-                                             @endif
+                                                @else
+                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
+                                                @endif
                                             @endif
                                             @endforeach
                                      </select>					         		 
 					         	</div>
-
                                  <div class="form-row col-lg-8 col-sm-12" style="display:{{session()->get('rol')=='Administrador'?'inline':'none'}}">
 					         		<label>Observación:</label>
 					         		<input type="text" id="Observacion" name="Observacion"  class="form-control">		         		 			         		 
 					         	</div>
-
                                 <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Material Usado :</label>
-					         		<input type="text" id="MaterialUsado" name="MaterialUsado" class="form-control">		         		 			         		 
-					         	</div>
+                                    <label>Material Arte:</label>
+                                    <select  id="IdMaterial" name="IdMaterial" class="form-control">
+                                        <option value="">Seleccione</option>
+                                           @foreach($datoMaterial as $itemMat)
+                                            <option value="{{$itemMat['id_material']}}">{{$itemMat['nombre']}}</option>
+                                           @endforeach
+                                     </select>                                   
+                                </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Alto :</label>
@@ -131,8 +136,7 @@
 					         	</div>
 
                                 <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Tipo Arte:</label>
-                                     <input type="number" id="idArte" hidden name="idArte" value="0" class="form-control">	
+					         		<label>Tipo Arte:</label>	
 					         		<select  id="TipoArte" name="TipoArte" class="form-control">
                                         <option value="">Seleccione</option>
                                            @foreach($datoCatalogo as $item)
@@ -199,10 +203,13 @@
 		        		<th>Estado</th>	
                         <th>Cod. TipoPost</th>        	 
 		        		<th>Tipo Post</th>
+                        <th>Cod. CatPost</th>           
+                        <th>Categoria Post</th>
                         <th>idArte</th>  
 		        		<th>Cod. Imagen</th>  
 		        		<th>Imagen</th>		 
-                        <th>PathImagen</th>	        
+                        <th>PathImagen</th>	
+                        <th>Cod. Material</th>        
 		        		<th>Material</th>
                         <th>Alto</th>
 		        		<th>Ancho</th>                        
@@ -266,6 +273,8 @@
             { name:'estado',data:'estado'},
             { name:'id_tipo_post',data:'id_tipo_post'},
             { name:'tipo_post',data:'tipo_post'},
+            { name:'id_categoria_post',data:'id_categoria_post'},
+            { name:'categoria_post',data:'categoria_post'},
             { name:'id_arte',data:'id_arte'},                 
             { name:'id_imagen',data:'id_imagen'},
             {
@@ -274,7 +283,8 @@
                     return '<img src="'+data+'" style = "width:150px;heigth:150;">';
                 }
             },
-            { name:'imagen_post',data:'imagen_post'},     
+            { name:'imagen_post',data:'imagen_post'},
+            { name:'id_material',data:'id_material'},     
             { name:'material_art',data:'material_art'},
             { name:'alto_art',data:'alto_art'},   
             { name:'ancho_art',data:'ancho_art'},            
@@ -293,16 +303,20 @@
             {'targets':[5],'visible':false,'searchable':false},
             {'targets':[7],'visible':false,'searchable':false},
             {'targets':[8],'visible':false,'searchable':false}, 
-            {'targets':[9],'visible':false,'searchable':false},
             {'targets':[10],'visible':false,'searchable':false},
             {'targets':[12],'visible':false,'searchable':false},            
             {'targets':[13],'visible':false,'searchable':false},
+            {'targets':[14],'visible':false,'searchable':false},
             {'targets':[15],'visible':false,'searchable':false},
-            {'targets':[16],'visible':false,'searchable':false},
             {'targets':[17],'visible':false,'searchable':false},
             {'targets':[18],'visible':false,'searchable':false},
             {'targets':[19],'visible':false,'searchable':false},
             {'targets':[20],'visible':false,'searchable':false},
+            {'targets':[21],'visible':false,'searchable':false},
+            {'targets':[22],'visible':false,'searchable':false},
+            {'targets':[23],'visible':false,'searchable':false},
+            {'targets':[24],'visible':false,'searchable':false},
+            {'targets':[25],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
@@ -324,8 +338,9 @@
         $("#idImagen").val(data.id_imagen);
         $("#Titulo").val(data.titulo);
         $("#Descripcion").val(data.descripcion);        
-        $("#TipoPost").val(data.id_tipo_post);         
-        $("#MaterialUsado").val(data.material_art);
+        $("#TipoPost").val(data.id_tipo_post);   
+        $("#CatPost").val(data.id_categoria_post);       
+        $("#IdMaterial").val(data.id_material);
         $("#Alto").val(data.alto_art);
         $("#Ancho").val(data.ancho_art);
         $("#TipoArte").val(data.id_etiqueta);
@@ -337,6 +352,7 @@
         
         if( "{{session()->get('rol')}}" === "Cliente"){    
             $("#Opcion").val('5');
+            $("#CatPost").val('16'); 
             bloquearCampos();
         }else if( "{{session()->get('rol')}}" === "Administrador"){    
             $("#Opcion").val('5');
@@ -349,6 +365,7 @@
         }else{
             $("#Estado").prop('disabled',true);
             $("#Opcion").val('3');
+            $("#CatPost").val('16'); 
         }
     });
 
@@ -362,7 +379,7 @@
                 let fileName = document.getElementById("imagen").files[0].name;
                 $("#PathImagen").val(fileName);
                 fd.append('image',file, fileName);
-                let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);	              
+                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadImage',fd);	              
                 envioImagen.then((data)=>{
                     console.log(data);
                 }).catch((data)=>{
@@ -456,20 +473,20 @@
         $("#Titulo").prop('disabled',true);
         $("#Descripcion").prop('disabled',true);        
         $("#TipoPost").prop('disabled',true);         
-        $("#MaterialUsado").prop('disabled',true);
+        $("#IdMaterial").prop('disabled',true);
         $("#Alto").prop('disabled',true);
         $("#Ancho").prop('disabled',true);
         $("#TipoArte").prop('disabled',true);
         $("#FechaInicio").prop('disabled',true);
         $("#FechaFin").prop('disabled',true);
         $("#Valor").prop('disabled',true);        
-        //$("#imagen").prop('disabled',true);      
+        $("#imagen").prop('disabled',true);      
     }
     function desbloquearCampos(){
         $("#Titulo").prop('disabled',false);
         $("#Descripcion").prop('disabled',false);        
         $("#TipoPost").prop('disabled',false);         
-        $("#MaterialUsado").prop('disabled',false);
+        $("#IdMaterial").prop('disabled',false);
         $("#Alto").prop('disabled',false);
         $("#Ancho").prop('disabled',false);
         $("#TipoArte").prop('disabled',false);
