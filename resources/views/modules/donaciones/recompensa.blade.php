@@ -130,6 +130,7 @@
         order: [[2, "asc"]],     
         iDisplayLength:5
     });
+  });
 </script>
 
 @endsection

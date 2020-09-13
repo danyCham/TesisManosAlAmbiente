@@ -79,8 +79,7 @@ Route::post('/galeria/post/mantenimiento','PostController@mantenimiento')->name(
 /* rutas del modulo de Subasta */
 /*==========================================================*/
 Route::get('/galeria/subasta','SubastaController@index')->name('subasta.index');
-Route::get('/galeria/subasta/consultar','SubastaController@subastaMaterial')->name('subasta.consultar');
-Route::get('/galeria/subasta/consultar/general','SubastaController@subastaMaterialGeneral')->name('subastaGeneral.consultar');
+Route::get('/galeria/subasta/consultar','SubastaController@consultarSubasta')->name('subasta.consultar');
 Route::post('/galeria/subasta/mantenimiento','SubastaController@mantenimiento')->name('subasta.mantenimiento');
 /*==========================================================*/
 

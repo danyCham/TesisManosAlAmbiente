@@ -131,7 +131,7 @@ class PostController extends Controller{
 
         $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
         $array = json_decode($response,true);
-
+         
         return array('data'=>$array['original']['respuesta']);
 
         

@@ -38,41 +38,42 @@
                 <div class="modal-body">
                   <form id="frmMaterial" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                    @csrf
-                   <div class="row">
-                    <div class="form-row col-lg-4 col-sm-12" style="display: none;">
-                      <label>idMaterial:</label>
-                      <input type="text" name="idMaterial" id="idMaterial">                       
-                    </div>
-                    <div class="form-row col-lg-4 col-sm-12">
-                      <label>Nombre:</label>
-                      <input type="text" id="Nombre" name="Nombre" class="form-control">                 
-                    </div>
-                    <div class="form-row col-lg-4 col-sm-12">
-                      <label>Medida de peso:</label>
-                      <input type="text" id="medida_peso" name="medida_peso" class="form-control">
-                    </div>
-                    <div class="form-row col-lg-4 col-sm-12">
-                      <label>Precio por medida:</label>
-                      <input type="text" id="precio" name="precio" class="form-control">
-                    </div>
-                    <div class="form-row col-lg-4 col-sm-12">
-                      <label>Estado:</label>
-                      <select name="estado" id="estado" class="form-control">
-                          <option value="">Seleccione</option>
-                          @foreach($datoCatalogo as $item)
-                           @if($item['nombre'] == 'ESTADO_MATERIAL') 
-                          <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
-                          </option>
-                          @endif
-                          @endforeach
-                      </select>
-                    </div>
-                    <div class="form-row col-lg-4 col-sm-12">
-                      <label>Imagen:</label>
-                        <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
-                        <img src="" id="imagenMostrar">    
-                        <input type="text" hidden name="PathImagen" id="PathImagen" class="form-control">    
-                        <input type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control"><input type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">
+                     <div class="row">
+                      <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                        <label>idMaterial:</label>
+                        <input type="text" name="idMaterial" id="idMaterial" value ="0">                       
+                      </div>
+                      <div class="form-row col-lg-12 col-sm-12">
+                        <label>Nombre:</label>
+                        <input type="text" id="Nombre" name="Nombre" class="form-control">                 
+                      </div>
+                      <div class="form-row col-lg-12 col-sm-12">
+                        <label>Medida de peso:</label>
+                        <input type="text" id="medida_peso" name="medida_peso" class="form-control">
+                      </div>
+                      <div class="form-row col-lg-12 col-sm-12">
+                        <label>Precio por medida:</label>
+                        <input type="text" id="precio" name="precio" class="form-control">
+                      </div>
+                      <div class="form-row col-lg-12 col-sm-12">
+                        <label>Estado:</label>
+                        <select name="estado" id="estado" class="form-control">
+                            <option value="">Seleccione</option>
+                            @foreach($datoCatalogo as $item)
+                             @if($item['nombre'] == 'ESTADO_MATERIAL') 
+                            <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
+                            </option>
+                            @endif
+                            @endforeach
+                        </select>
+                      </div>
+                      <div class="form-row col-lg-12 col-sm-12">
+                        <label>Imagen:</label>
+                          <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
+                          <img src="" id="imagenMostrar">    
+                          <input type="text" hidden name="PathImagen" id="PathImagen" class="form-control">    
+                          <input type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control"><input type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">
+                      </div>
                     </div>
                    </form>
                 </div>
@@ -257,9 +258,9 @@
 
     $("#imagen").on("change",function(){
       readURLRed(this);
-    });
-      
-   });   
+    });    
+    
+});
    function readURLRed(input) {
     if (input.files && input.files[0]) {
             var reader = new FileReader();

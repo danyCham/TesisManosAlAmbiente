@@ -21,7 +21,7 @@
    	 	   	  <div class="card-body">
    	 	   	  	<div class="form-group">
 						   	    		<!-- Button trigger modal -->
-					<button  id="btnAgregarPost" style="display:{{session()->get('rol')=='Cliente'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
+					<button id="btnAgregarPost" style="display:{{session()->get('rol')=='Cliente'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
 					  Agregar <i class="fas fa-plus"></i>
 					</button>
                     
@@ -41,11 +41,11 @@
 					         <div class="row">
 					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
 					         		<label>idPost:</label>
-					         		<input type="text" name="idPost" id="idPost"  >					         		 
+					         		<input type="text" name="idPost" id="idPost" value="0" >					         		 
 					         	</div>
                                 <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                                     <label>idArte:</label>
-                                    <input type="text" name="idArte" id="idArte"  >                                  
+                                    <input type="text" name="idArte" id="idArte"  value="0">                                  
                                 </div>                                
                                 <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <h4 class="modal-title">Datos del artista</h4>                                  
@@ -89,11 +89,6 @@
 					         		<input type="text" id="Titulo" name="Titulo" class="form-control"maxlength="50" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 
 					         	</div>
 
-					         	<div class="form-row col-lg-8 col-sm-12">
-					         		<label>Descripción:</label>
-					         		<input type="text" id="Descripcion" name="Descripcion" class="form-control">		         		 			         		 
-					         	</div>
-
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Tipo Post:</label>
 					         		<select  id="TipoPost" name="TipoPost" class="form-control">
@@ -111,10 +106,6 @@
                                             @endforeach
                                      </select>					         		 
 					         	</div>
-                                 <div class="form-row col-lg-8 col-sm-12" style="display:{{session()->get('rol')=='Administrador'?'inline':'none'}}">
-					         		<label>Observación:</label>
-					         		<input type="text" id="Observacion" name="Observacion"  class="form-control">		         		 			         		 
-					         	</div>
                                 <div class="form-row col-lg-4 col-sm-12">
                                     <label>Material Arte:</label>
                                     <select  id="IdMaterial" name="IdMaterial" class="form-control">
@@ -127,12 +118,12 @@
 
                                  <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Alto :</label>
-					         		<input type="number" id="Alto" name="Alto" class="form-control">		         		 			         		 
+					         		<input type="number" id="Alto" name="Alto" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 			         		 
 					         	</div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Ancho :</label>
-					         		<input type="number" id="Ancho" name="Ancho" class="form-control">		         		 			         		 
+					         		<input type="number" id="Ancho" name="Ancho" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 			         		 
 					         	</div>
 
                                 <div class="form-row col-lg-4 col-sm-12">
@@ -174,8 +165,19 @@
 					         	</div>
                                 <div class="form-row col-lg-4 col-sm-12">
                                     <label>Valor del arte :</label>
-                                    <input type="number" id="Valor" name="Valor" class="form-control">                                                     
+                                    <input type="number" id="Valor" name="Valor" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
+                                <div class="form-row col-lg-4 col-sm-12">
+                                    <label>Descripción:</label>
+                                    <textarea class="form-control" rows="5" id="Descripcion" name="Descripcion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>                                                   
+                                </div>
+
+
+                                 <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Administrador'?'inline':'none'}}">
+                                    <label>Observación:</label>
+                                    <textarea class="form-control" rows="5" id="Observacion" name="Observacion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>
+                                </div>
+
 					           </div>
 					         </form>
 					      </div>
@@ -232,8 +234,7 @@
 
 <script>
    var dataTablePost = null;
-   $(document).ready(function(){
-
+   $(document).ready(function(){     
     dataTablePost = $("#tblPost").DataTable({
         language: {
             "decimal": "",
@@ -322,6 +323,7 @@
         order: [[2, "asc"]],     
         iDisplayLength:5
     });
+
 
     $("#tblPost tbody").on("click","#btnEditarPost",function(){
         var data = dataTablePost.row($(this).parents("tr")).data();
@@ -448,6 +450,11 @@
         
     });
 
+    $("#btnAgregarPost").on("click",function(){
+         desbloquearCampos();
+         limpiarFormulario();
+     });
+
     $("#imagen").on("change",function(){
       readURLRed(this);
     });
@@ -496,6 +503,10 @@
         $("#imagen").prop('disabled',false); 
         $("#Estado").prop('disabled',false);
     }
+    function limpiarFormulario() {
+        document.getElementById("frmPost").reset();
+    }
+    
 </script>
 
 @endsection
