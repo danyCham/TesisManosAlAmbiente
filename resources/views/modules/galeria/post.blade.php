@@ -12,42 +12,42 @@
 @section('content')
 <br>
    <div class="container">
-   	  <div class="container-fluid">   	  	
-   	  	<div class="row">   	  		
-   	 	   <div class="card" style="width: auto; margin: auto auto;">
-   	 	   	<div style="display: none;">
-   	 	 		<input type="text" id="modoConsulta" value="{{$data}}" readonly class="form-control">
-   	 	 	</div>
-   	 	   	  <div class="card-body">
-   	 	   	  	<div class="form-group">
-						   	    		<!-- Button trigger modal -->
-					<button id="btnAgregarPost" style="display:{{session()->get('rol')=='Cliente'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
-					  Agregar <i class="fas fa-plus"></i>
-					</button>
+      <div class="container-fluid">         
+        <div class="row">           
+         <div class="card" style="width: auto; margin: auto auto;">
+          <div style="display: none;">
+          <input type="text" id="modoConsulta" value="{{$data}}" readonly class="form-control">
+        </div>
+            <div class="card-body">
+              <div class="form-group">
+                        <!-- Button trigger modal -->
+          <button id="btnAgregarPost" style="display:{{session()->get('rol')=='Cliente'?'none':'compact'}}" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalPost">
+            Agregar <i class="fas fa-plus"></i>
+          </button>
                     
-					<!-- Modal -->
-					<div class="modal fade" id="modalPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					  <div class="modal-dialog modal-xl">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h4 class="modal-title"  id="exampleModalLabel">.:Post:.</h4>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      <div class="modal-body">
-					      	<form id="frmPost" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-					         @csrf
-					         <div class="row">
-					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
-					         		<label>idPost:</label>
-					         		<input type="text" name="idPost" id="idPost"  value="0" >					         		 
-					         	</div>
+          <!-- Modal -->
+          <div class="modal fade" id="modalPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title"  id="exampleModalLabel">.:Post:.</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="frmPost" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                   @csrf
+                   <div class="row">
+                    <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                      <label>idPost:</label>
+                      <input type="text" name="idPost" id="idPost"  value="0" >                      
+                    </div>
                       <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                           <label>idArte:</label>
                           <input type="text" name="idArte" id="idArte" value="0" >
-					         		<input type="text" name="idPost" id="idPost" value="0" >					         		 
-					         	</div>
+                      <input type="text" name="idPost" id="idPost" value="0" >                       
+                    </div>
                     <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                         <label>idArte:</label>
                         <input type="text" name="idArte" id="idArte"  value="0">
@@ -89,14 +89,14 @@
                           <input  style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">                            
                     </div>
 
-					         	<div class="form-row col-lg-4 col-sm-12">
-					         		<label>Título:</label>
-					         		<input type="text" id="Titulo" name="Titulo" class="form-control"maxlength="50" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 
-					         	</div>
+                    <div class="form-row col-lg-4 col-sm-12">
+                      <label>Título:</label>
+                      <input type="text" id="Titulo" name="Titulo" class="form-control"maxlength="50" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">                
+                    </div>
 
-					         	<div class="form-row col-lg-4 col-sm-12">
-					         		<label>Tipo Post:</label>
-					         		<select  id="TipoPost" name="TipoPost" class="form-control">
+                    <div class="form-row col-lg-4 col-sm-12">
+                      <label>Tipo Post:</label>
+                      <select  id="TipoPost" name="TipoPost" class="form-control">
                          <option value="">Seleccione</option>   
                              @foreach($datoCatalogo as $item)
                                @if($item['nombre'] == 'TIPO_POST')
@@ -109,8 +109,8 @@
                                   @endif
                               @endif
                               @endforeach
-                       </select>					         		 
-					         	</div>
+                       </select>                       
+                    </div>
                     <div class="form-row col-lg-4 col-sm-12">
                         <label>Material Arte:</label>
                         <select  id="IdMaterial" name="IdMaterial" class="form-control">
@@ -122,18 +122,18 @@
                     </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Alto :</label>
-					         		<input type="number" id="Alto" name="Alto" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 			         		 
-					         	</div>
+                      <label>Alto :</label>
+                      <input type="number" id="Alto" name="Alto" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">                                  
+                    </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Ancho :</label>
-					         		<input type="number" id="Ancho" name="Ancho" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">		         		 			         		 
-					         	</div>
+                      <label>Ancho :</label>
+                      <input type="number" id="Ancho" name="Ancho" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">                                  
+                    </div>
 
                                 <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Tipo Arte:</label>	
-					         		<select  id="TipoArte" name="TipoArte" class="form-control">
+                      <label>Tipo Arte:</label> 
+                      <select  id="TipoArte" name="TipoArte" class="form-control">
                                         <option value="">Seleccione</option>
                                            @foreach($datoCatalogo as $item)
                                              @if($item['nombre'] == 'TIPO_ARTE') 
@@ -141,20 +141,20 @@
                                             </option>
                                             @endif
                                             @endforeach
-                                     </select>					         		 
-					         	</div>
+                                     </select>                       
+                    </div>
                                  <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Fecha Inicio :</label>
-					         		<input type="date" id="FechaInicio" name="FechaInicio" class="form-control">		         		 			         		 
-					         	</div>
+                      <label>Fecha Inicio :</label>
+                      <input type="date" id="FechaInicio" name="FechaInicio" class="form-control">                                   
+                    </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
-					         		<label>Fecha Fin :</label>
-					         		<input type="date" id="FechaFin" name="FechaFin" class="form-control">		         		 			         		 
-					         	</div>
+                      <label>Fecha Fin :</label>
+                      <input type="date" id="FechaFin" name="FechaFin" class="form-control">                                   
+                    </div>
                                  <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}">
-					         		<label>Estado:</label>
-					         		<select  id="Estado" name="Estado" class="form-control">
+                      <label>Estado:</label>
+                      <select  id="Estado" name="Estado" class="form-control">
                                         <option value="">Seleccione</option>
                                         @if(session()->get('rol')=='Administrador')
                                              @foreach($datoCatalogo as $item)
@@ -166,8 +166,8 @@
                                          @else                                         
                                           <option value="6">PENDIENTE</option>
                                          @endif                                        
-					         		</select>					         		 
-					         	</div>
+                      </select>                      
+                    </div>
                                 <div class="form-row col-lg-4 col-sm-12">
                                     <label>Valor del arte :</label>
                                     <input type="number" id="Valor" name="Valor" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
@@ -180,6 +180,7 @@
                                      <input type="text" id="PathPdf" name="PathPdf" hidden>
                                     @endif
                                 </div>
+                                <div class="form-row col-lg-4 col-sm-12">
                                     <label>Descripción:</label>
                                     <textarea class="form-control" rows="5" id="Descripcion" name="Descripcion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>                                                   
                                 </div>
@@ -189,57 +190,57 @@
                                     <label>Observación:</label>
                                     <textarea class="form-control" rows="5" id="Observacion" name="Observacion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>
                                 </div>
-					           </div>
-					         </form>
-					      </div>
-					      <div class="modal-footer">
-                            <button type="button" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}" id="btnCotizaPost" class="btn btn-success">Cotiza <i class="fi-fire"></i> </button>				       
-					         <button type="button" style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" id="btnSavePost" class="btn btn-primary">Guardar <i class="fas fa-save"></i> </button>
-					         <button type="button" id="btnClosePost" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fas fa-close"></i> </button>
-					      </div>
-					    </div>
-					  </div>
-					</div>                    
-	   	    	</div>
-   	 	   	  	<div>                    
-   	 	   	  		<table id="tblPost" class="table table-responsive table-hover table-striped" width="98%">
-   	 	   	  		<thead style="background-color: #0d967d;color:white;">
+                     </div>
+                   </form>
+                </div>
+                <div class="modal-footer">
+                            <button type="button" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}" id="btnCotizaPost" class="btn btn-success">Cotiza <i class="fi-fire"></i> </button>               
+                   <button type="button" style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" id="btnSavePost" class="btn btn-primary">Guardar <i class="fas fa-save"></i> </button>
+                   <button type="button" id="btnClosePost" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fas fa-close"></i> </button>
+                </div>
+              </div>
+            </div>
+          </div>                    
+            </div>
+              <div>                    
+                <table id="tblPost" class="table table-responsive table-hover table-striped" width="98%">
+                <thead style="background-color: #0d967d;color:white;">
                         <th>Cod artista</th>
                         <th>Nombre artista</th>
                         <th>email</th>
                         <th>telefono</th>
                         <th>foto Artista</th>
-		        		<th>Cod. Post</th>	
-                        <th>Título</th>	        	
-		        		<th>Descripción</th> 
+                <th>Cod. Post</th>  
+                        <th>Título</th>           
+                <th>Descripción</th> 
                         <th>Cod. Estado</th>  
-		        		<th>Estado</th>	
-                        <th>Cod. TipoPost</th>        	 
-		        		<th>Tipo Post</th>
+                <th>Estado</th> 
+                        <th>Cod. TipoPost</th>           
+                <th>Tipo Post</th>
                         <th>Cod. CatPost</th>           
                         <th>Categoria Post</th>
                         <th>idArte</th>  
-		        		<th>Cod. Imagen</th>  
-		        		<th>Imagen</th>		 
-                        <th>PathImagen</th>	
+                <th>Cod. Imagen</th>  
+                <th>Imagen</th>    
+                        <th>PathImagen</th> 
                         <th>Cod. Material</th>        
-		        		<th>Material</th>
+                <th>Material</th>
                         <th>Alto</th>
-		        		<th>Ancho</th>                        
+                <th>Ancho</th>                        
                         <th>Cod. TipoArte</th>
                         <th>Tipo Arte</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
                         <th>Valor</th>
                         <th>UrlPDf</th>
-		        		<th>Acción</th>    
-		        	  </thead>
-   	 	   	  	</table>
-   	 	   	  	</div>
-   	 	   	  </div>
-   	 	   </div>
-    	</div>
-   	  </div>
+                <th>Acción</th>    
+                </thead>
+              </table>
+              </div>
+            </div>
+         </div>
+      </div>
+      </div>
    </div>  
 @endsection
 @section('scripts')
@@ -399,7 +400,7 @@
                 let fileName = document.getElementById("imagen").files[0].name;
                 $("#PathImagen").val(fileName);
                 fd.append('image',file, fileName);
-                let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);	              
+                let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);                
                 envioImagen.then((data)=>{
                     console.log(data);
                 }).catch((data)=>{
@@ -417,7 +418,7 @@
                 let fileName = document.getElementById("PDF").files[0].name;
                 $("#PathPdf").val(fileName);
                 fd.append('file',file, fileName);
-                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadFile',fd);	              
+                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadFile',fd);               
                 envioImagen.then((data)=>{
                     console.log(data);
                 }).catch((data)=>{
@@ -444,7 +445,7 @@
                             text: data.data[0].MensajeError,
                             showConfirmButton: false,
                             timer: 15000
-                        });		
+                        });   
                             
                         dataTablePost.ajax.reload(); 
                         $("#btnClosePost").click();
@@ -458,7 +459,7 @@
                             text: data.data[0].MensajeError,
                             showConfirmButton: false,
                             timer: 15000
-                        });	
+                        }); 
                         }                    
                 },
                 error: function(data){
@@ -470,7 +471,7 @@
                         text: data.responseText ,
                         showConfirmButton: false,
                         timer: 15000
-                    });				    	 
+                    });              
                 } 
                 });
         }
@@ -483,7 +484,7 @@
                 text: 'No tiene permisos para realizar esta acción',
                 showConfirmButton: false,
                 timer: 15000
-            });	
+            }); 
         }
         
     });
@@ -499,17 +500,17 @@
       
    });   
    function readURLRed(input) {
-		if (input.files && input.files[0]) {
-		        var reader = new FileReader();
+    if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-		        reader.onload = function (e) {
-		            $('#imagenMostrar').attr('src', e.target.result);
-		            $('#imagenMostrar').prop('style', 'width:450px;heigth:450;margin:auto auto;');
-		            path = e.target.result;
-		        };
+            reader.onload = function (e) {
+                $('#imagenMostrar').attr('src', e.target.result);
+                $('#imagenMostrar').prop('style', 'width:450px;heigth:450;margin:auto auto;');
+                path = e.target.result;
+            };
 
-		        reader.readAsDataURL(input.files[0]);
-		    }
+            reader.readAsDataURL(input.files[0]);
+        }
     }
     function bloquearCampos(){
         $("#Nombre").prop('disabled',true);

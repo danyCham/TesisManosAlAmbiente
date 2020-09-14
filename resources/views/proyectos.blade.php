@@ -6,9 +6,11 @@
                 <h2>Conozca nuestros Proyectos</h2>
                 <div class="text">Se parte de ellos y mira como puedes participar</div>
             </div>
-            @foreach($Post as $item)
+            
             <div class="card-deck">
+
                 <div class="card text-center border-success text-success">
+                  @foreach($Post as $item)
                   <div class="card-header text-white bg-success">
                     {{$item['titulo']}}
                   </div>
@@ -21,11 +23,12 @@
                   <div class="card-footer text-success border-success">
                     Fecha de publicacion.
                     {{$item['fecha_ini']}}
-                  </div>               
+                  </div> 
+                  @endforeach              
                 </div>
                 
             </div>  
-            @endforeach
+            
         </div>
     </section>     
 @endsection

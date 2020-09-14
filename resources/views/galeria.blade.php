@@ -56,7 +56,7 @@
                           <h1>Proximanente más exhibiciones</h1>
                       </div>
                      @else
-                      <div class="card-deck col-xs-6 col-md-4"> 
+                      <div class="card-deck"> 
                         @foreach($Post as $item)
                         @if($item['tipo_post'] == 'EXHIBICION')                         
                         <div class="card mb-3">
@@ -88,7 +88,7 @@
                         <h1>Proximanente más Subastas</h1>
                     </div>
                      @else                        
-                        <div class="card-deck col-xs-6 col-md-4">
+                        <div class="card-deck">
                           @foreach($Post as $item)
                           @if($item['tipo_post'] == 'SUBASTA')
                           <div class="card mb-3">

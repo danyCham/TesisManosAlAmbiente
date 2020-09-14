@@ -43,7 +43,10 @@
 					<input type="submit" class="btn btn-outline-success" value="Ingresar" style="width: auto; margin: auto auto;"/>
 				</div>
 				<div class="input-group mb-3">
-					<a href="#">Perdiste tu contraseña?</a>
+					<a href="{{route('auth.registrarse')}}" class="btn btn-outline-primary">Registrate</a>
+				</div>
+				<div class="input-group mb-3">
+					<a href="#">Olvidaste tu contraseña?</a>
 				</div>
 			</form>
 	    </section>
