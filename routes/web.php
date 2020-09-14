@@ -42,9 +42,15 @@ Route::get('/destroy','AuthenticateController@destroy')->name('auth.destroy');
 
 //rutas para la pantalla de usuarios
 Route::get('/seguridad/usuarios','UsuarioController@index')->name('usuario.index');
+
 Route::get('/seguridad/miperfil','UsuarioController@index')->name('usuario.indexperfil');
+
+Route::get('/seguridad/miperfil','UsuarioController@indexperfil')->name('usuario.indexperfil');
+
 //para consulta los usuarios
 Route::get('/seguridad/usuarios/consulta/{idRol}/{Cedula}/{Opcion}','UsuarioController@consultarUsuarios')->name('usuario.consultar');
+
+Route::get('/seguridad/usuarios/consulta','UsuarioController@consultarUsuario')->name('usuario.consultaperfil');
 
 Route::get('/noautorizado','AuthenticateController@noautIndex')->name('usuario.noautorizado');
 
@@ -55,6 +61,7 @@ Route::post('/seguridad/usuarios/mantenimiento','UsuarioController@mantenimiento
 Route::get('/seguridad/asignacionmenurol','AsignacionMenuController@index')->name('menurol.index');
 //ruta para consultar menu, submenu y menu rol
 Route::get('/seguridad/asignacionmenurol/consultar/{opcion}','AsignacionMenuController@consultar')->name('menurol.consultar');
+
 
 //ruta para mantenimiento de menu rol
 Route::post('/seguridad/asignacionmenurol/mantenimiento','AsignacionMenuController@mantenimiento')->name('menurol.mantenimiento');
@@ -73,6 +80,7 @@ Route::post('/seguridad/catalogo/mantenimiento','CatalogoController@mantenimient
 /*==========================================================*/
 Route::get('/galeria/post','PostController@index')->name('post.index');
 Route::get('/galeria/post/consultar','PostController@consultarPostGeneral')->name('post.consultaGeneral');
+Route::get('/galeria/post/proyecto/consultar','PostController@consultarPostProyecto')->name('post.consultaproyecto');
 Route::get('/galeria/post/consultar/administracion','PostController@consultarPost')->name('post.consultar');
 Route::post('/galeria/post/mantenimiento','PostController@mantenimiento')->name('post.mantenimiento');
 /*==========================================================*/

@@ -19,8 +19,10 @@ class HomeController extends Controller {
       return view('welcome')->with(['Post'=>$datos]);
    }
 
-   public function proyectos(){      
-      return view('proyectos');
+   public function proyectos(){   
+      $post = new PostController();
+      $datos = $post->consultarPostProyecto();       
+      return view('proyectos')->with(['Post'=>$datos]);
    }
 
    public function galeria(){

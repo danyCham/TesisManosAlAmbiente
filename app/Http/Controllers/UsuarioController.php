@@ -32,8 +32,35 @@ class UsuarioController extends Controller
              return view('login');
         }
    }
+
+   public function indexperfil(){  
+        $data = $this->consultarUsuario();
+        session(['dataUsuario'=>$data]);
+        return view("modules.seguridad.miperfil");       
+  }
    
    //metodo para consultar los usuarios
+   public function consultarUsuario(){
+      try {       	
+	    
+         $res = $this->cliente->request('POST', $this->baseUrl.'autenticacion/registrarUsuario', [
+             'json' =>  [
+                    "p_Id_Usuario"=>session()->get('idUsuario'),                    
+                    "p_Opcion"=> 10,
+              ]
+          ]);
+           
+          $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
+          $array = json_decode($response,true);
+          $data = $array['original']['respuesta'];
+          return $data;
+        } 
+       catch (Exception $ex) {
+           $logs = new Utils();
+           $logs->escribirLog($ex->getMessage());
+          return redirect()->route('auth.index')->withErrors(['errors'=>'Ocurrio un error inesperado, favor contactar con departamento de sistemas']);
+       }
+   }
    public function consultarUsuarios($rol,$cedula,$opcion){
       try {       	
 	    
@@ -48,7 +75,7 @@ class UsuarioController extends Controller
           $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
           $array = json_decode($response,true);
           $data = $array['original']['respuesta'];
-          return response()->json($data);
+          return array('data'=>$data);
         } 
        catch (Exception $ex) {
            $logs = new Utils();
@@ -60,7 +87,7 @@ class UsuarioController extends Controller
    //metodo para insetar o actualizar usuario
    public function mantenimientoUsuario(Request $request){
       $validatedData = $request->validate([
-            'IdUsuario' => 'required',
+            'idUsuario' => 'required',
             'IdRol' => 'required',
             'Nombres' => 'required',
             'Apellidos' => 'required',
@@ -68,8 +95,8 @@ class UsuarioController extends Controller
             'FechaNacimiento' => 'required',             
             'Direccion' => 'required',
             'Cedula' => 'required',
-            'Correo' => 'required|email',
-            'Telefono' => 'required',            
+            'Email' => 'required|email',
+            'Celular' => 'required',            
             'IdImagen' => 'required',            
             'Estado' => 'required'
 		    ]);
@@ -78,31 +105,31 @@ class UsuarioController extends Controller
 	    
 	       $res = $this->cliente->request('POST', $this->baseUrl.'autenticacion/registrarUsuario', [
 	        	'json' =>  [
-	               "p_Id_Usuario"=>$request->input('IdUsuario'),
+	               "p_Id_Usuario"=>$request->input('idUsuario'),
 						"p_Id_Usuario_rm"=> session()->get('idUsuario'),
 						"p_Nombre"=>$request->input('Nombres'),
 						"p_Apellido"=>$request->input('Apellidos') ,
-						"p_Email"=>$request->input('Correo') ,
+						"p_Email"=>$request->input('Email') ,
 						"p_Cedula"=>$request->input('Cedula') ,
 						"p_Sexo"=>$request->input('Sexo') ,
 						"p_Direccion"=>$request->input('Direccion') ,
-						"p_Telefono"=>$request->input('Telefono') ,
+						"p_Telefono"=>$request->input('Celular') ,
 						"p_FechaNac"=>$request->input('FechaNacimiento') ,
 						"p_Password"=>$request->input('Clave') ,
 						"p_Id_rol"=> $request->input('IdRol'),
-						"p_Url"=> $request->input('ImagenPerfil') == "" ? '' : $this->baseUrl.'public/images/'.$request->input('ImagenPerfil'),
+						"p_Url"=> $request->input('PathImagen') == "" ? '' : $this->baseUrl.'public/images/'.$request->input('PathImagen'),
 						"p_Id_imagen" => $request->input('IdImagen'),
 						"p_Clave_temp"=>"",
 						"p_Estado_clave"=>3,
 						"p_Estado_user"=>$request->input('EstadoUsuario'),
-						"p_Opcion"=> intval($request->input('IdUsuario')) == 0 ? 1 : 9
+						"p_Opcion"=> intval($request->input('idUsuario')) == 0 ? 1 : 9
 	            ]
 	        ]);
             
 	        $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
 	        $array = json_decode($response,true);
 	      
-           return $array['original']['respuesta'];
+           return array('data'=>$array['original']['respuesta']);
 
         } catch (Exception $ex) {
          $logs = new Utils();

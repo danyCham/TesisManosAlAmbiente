@@ -41,48 +41,53 @@
 					         <div class="row">
 					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
 					         		<label>idPost:</label>
+					         		<input type="text" name="idPost" id="idPost"  value="0" >					         		 
+					         	</div>
+                      <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                          <label>idArte:</label>
+                          <input type="text" name="idArte" id="idArte" value="0" >
 					         		<input type="text" name="idPost" id="idPost" value="0" >					         		 
 					         	</div>
-                                <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
-                                    <label>idArte:</label>
-                                    <input type="text" name="idArte" id="idArte"  value="0">                                  
-                                </div>                                
-                                <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <h4 class="modal-title">Datos del artista</h4>                                  
-                                </div>
+                    <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                        <label>idArte:</label>
+                        <input type="text" name="idArte" id="idArte"  value="0">
+                    </div>                                
+                    <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <h4 class="modal-title">Datos del artista</h4>                                  
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">                                    
-                                    <label>Nombre del artista:</label>
-                                    <input type="text" id="Nombre" name="Nombre" class="form-control">                    
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">                                    
+                        <label>Nombre del artista:</label>
+                        <input type="text" id="Nombre" name="Nombre" class="form-control">                    
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Correo electronico:</label>
-                                    <input type="text" id="Correo" name="Correo" class="form-control">                       
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <label>Correo electronico:</label>
+                        <input type="text" id="Correo" name="Correo" class="form-control">                       
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Telefono:</label>
-                                    <input type="text" id="Telefono" name="Telefono" class="form-control">                       
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <label>Telefono:</label>
+                        <input type="text" id="Telefono" name="Telefono" class="form-control">                       
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Imagen del artista: </label>
-                                     <img src="" id="imagenArtistaMostrar" style = "width:150px;heigth:150;"> 
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <label>Imagen del artista: </label>
+                         <img src="" id="imagenArtistaMostrar" style = "width:150px;heigth:150;"> 
+                    </div>
 
-                                <div class="form-row col-lg-12 col-sm-12"style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <h4 class="modal-title">Datos del post</h4>                     
-                                </div>
+                    <div class="form-row col-lg-12 col-sm-12"style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <h4 class="modal-title">Datos del post</h4>                     
+                    </div>
 
-                                <div class="form-row col-lg-12 col-sm-12">
-                                    <label>Imagen:</label>
-                                     <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
-                                     <img src="" id="imagenMostrar" style = "width:200px;heigth:200;">    
-                                     <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="PathImagen" id="PathImagen" class="form-control">      
-                                      <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">   
-                                      <input  style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">                            
-                                </div>
+                    <div class="form-row col-lg-12 col-sm-12">
+                        <label>Imagen:</label>
+                         <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
+                         <img src="" id="imagenMostrar" style = "width:200px;heigth:200;">    
+                         <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="PathImagen" id="PathImagen" class="form-control">      
+                          <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">   
+                          <input  style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">                            
+                    </div>
 
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Título:</label>
@@ -92,29 +97,29 @@
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Tipo Post:</label>
 					         		<select  id="TipoPost" name="TipoPost" class="form-control">
-                                       <option value="">Seleccione</option>   
-                                           @foreach($datoCatalogo as $item)
-                                             @if($item['nombre'] == 'TIPO_POST')
-                                               @if(session()->get('rol')=='Administrador')
-                                                 @if($item['detalle'] !='PROYECTO') 
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                 @endif
-                                                @else
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                @endif
-                                            @endif
-                                            @endforeach
-                                     </select>					         		 
+                         <option value="">Seleccione</option>   
+                             @foreach($datoCatalogo as $item)
+                               @if($item['nombre'] == 'TIPO_POST')
+                                 @if(session()->get('rol')=='Administrador')
+                                   @if($item['detalle'] =='PROYECTO') 
+                                      <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
+                                   @endif
+                                  @else
+                                      <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
+                                  @endif
+                              @endif
+                              @endforeach
+                       </select>					         		 
 					         	</div>
-                                <div class="form-row col-lg-4 col-sm-12">
-                                    <label>Material Arte:</label>
-                                    <select  id="IdMaterial" name="IdMaterial" class="form-control">
-                                        <option value="">Seleccione</option>
-                                           @foreach($datoMaterial as $itemMat)
-                                            <option value="{{$itemMat['id_material']}}">{{$itemMat['nombre']}}</option>
-                                           @endforeach
-                                     </select>                                   
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12">
+                        <label>Material Arte:</label>
+                        <select  id="IdMaterial" name="IdMaterial" class="form-control">
+                            <option value="">Seleccione</option>
+                               @foreach($datoMaterial as $itemMat)
+                                <option value="{{$itemMat['id_material']}}">{{$itemMat['nombre']}}</option>
+                               @endforeach
+                         </select>                                   
+                    </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Alto :</label>
@@ -168,6 +173,13 @@
                                     <input type="number" id="Valor" name="Valor" class="form-control" title="Se admiten hasta 5 cifras" maxlength="5" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                 </div>
                                 <div class="form-row col-lg-4 col-sm-12">
+                                    @if(session()->get('rol')=='Administrador')
+                                     <label>Pdf:</label>
+                                     <input type="file" id="PDF" accept="pdf/*">
+                                     <a href="" id="linkPdf" target="_blank" >Ver Pdf</a>
+                                     <input type="text" id="PathPdf" name="PathPdf" hidden>
+                                    @endif
+                                </div>
                                     <label>Descripción:</label>
                                     <textarea class="form-control" rows="5" id="Descripcion" name="Descripcion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>                                                   
                                 </div>
@@ -177,7 +189,6 @@
                                     <label>Observación:</label>
                                     <textarea class="form-control" rows="5" id="Observacion" name="Observacion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>
                                 </div>
-
 					           </div>
 					         </form>
 					      </div>
@@ -220,6 +231,7 @@
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
                         <th>Valor</th>
+                        <th>UrlPDf</th>
 		        		<th>Acción</th>    
 		        	  </thead>
    	 	   	  	</table>
@@ -294,6 +306,7 @@
             { name:'fecha_ini',data:'fecha_ini'}, 
             { name:'fecha_fin',data:'fecha_fin'}, 
             { name:'valor_ini',data:'valor_ini'},
+            { name:'urlPdf',data:'urlPdf'},
             {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarPost' > <i class='fas fa-edit' > </i> </button> "   }                 
         ],     
         columnDefs: [
@@ -318,6 +331,7 @@
             {'targets':[23],'visible':false,'searchable':false},
             {'targets':[24],'visible':false,'searchable':false},
             {'targets':[25],'visible':false,'searchable':false},
+            {'targets':[27],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
@@ -358,7 +372,11 @@
             bloquearCampos();
         }else if( "{{session()->get('rol')}}" === "Administrador"){    
             $("#Opcion").val('5');
-
+            if(data.tipo_post ==='PROYECTO')
+            {
+                $("#linkPdf").attr('href',data.urlPdf);
+            }
+            
             if("{{session()->get('idUsuario')}}" === data.id_usuario){
 
             } else {
@@ -391,6 +409,26 @@
             else{
                 $("#PathImagen").val('');
             }
+
+            if($("#PDF").val().length>0){
+
+                const fd = new FormData();
+                let file = document.getElementById("PDF").files[0];
+                let fileName = document.getElementById("PDF").files[0].name;
+                $("#PathPdf").val(fileName);
+                fd.append('file',file, fileName);
+                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadFile',fd);	              
+                envioImagen.then((data)=>{
+                    console.log(data);
+                }).catch((data)=>{
+                    console.log(data);
+                })
+                }
+                else{
+                $("#PathImagen").val('');
+                }
+
+
                 desbloquearCampos();
                 $.ajax({
                 type: 'POST', 
