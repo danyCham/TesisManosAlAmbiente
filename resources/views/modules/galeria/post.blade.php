@@ -45,8 +45,7 @@
                     </div>
                       <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                           <label>idArte:</label>
-                          <input type="text" name="idArte" id="idArte" value="0" >
-                      <input type="text" name="idPost" id="idPost" value="0" >                       
+                          <input type="text" name="idArte" id="idArte" value="0" >                      
                     </div>
                     <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                         <label>idArte:</label>
@@ -418,7 +417,7 @@
                 let fileName = document.getElementById("PDF").files[0].name;
                 $("#PathPdf").val(fileName);
                 fd.append('file',file, fileName);
-                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadFile',fd);               
+                let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadFile',fd);               
                 envioImagen.then((data)=>{
                     console.log(data);
                 }).catch((data)=>{
