@@ -58,7 +58,7 @@ class PostController extends Controller{
    public function consultarPost(){
     try {
         $rol =  session()->get('rol');
-        $opcion = $rol == 'Administrador' ? '8' :  ($rol == 'Artista' ? '6' : '4');
+        $opcion = $rol == 'Administrador' ? '8' : ( $rol == 'Artista' ? '6' : '4') ;
 
         $res = $this->cliente->request('GET', $this->baseUrl.'post/'.session()->get('idUsuario').'/'.$opcion, [           
             'headers' =>[
@@ -77,6 +77,25 @@ class PostController extends Controller{
           return array('data'=>$resp);
       }
    }
+
+   public function consultarPostProyecto(){
+    try {
+        $rol =  1;
+        $opcion =  9;
+
+        $res = $this->cliente->request('GET', $this->baseUrl.'post/1/'.$opcion);          
+         $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
+         $array = json_decode($response,true);
+         return $array['original']['respuesta'];
+       } 
+      catch (Exception $ex) {
+          $logs = new Utils();
+          $logs->escribirLog($ex->getMessage());
+          $resp = array('CodigoError'=>'0001','MensajeError'=> 'Ocurrio un error inesperado contactar con sistemas!!');
+          return array('data'=>$resp);
+      }
+   }
+
 
    public function mantenimiento(Request $request){
     $validatedData = $request->validate([
@@ -120,6 +139,7 @@ class PostController extends Controller{
                 "p_valor_subasta_ini"=>$request->input('Valor'),
                 "p_valor_subasta_fin"=>$request->input('Valor'),
                 "p_observacion"=>$request->input('Observacion'),
+                "p_urlPdf" =>$request->input('PathPdf') == "" ? '' : $this->baseUrl.'public/pdfs/'.$request->input('PathPdf'),							 
                 "p_Opcion"=> $request->input('Opcion')
             ], 
             'headers' =>[

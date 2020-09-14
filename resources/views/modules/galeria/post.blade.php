@@ -41,11 +41,11 @@
 					         <div class="row">
 					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
 					         		<label>idPost:</label>
-					         		<input type="text" name="idPost" id="idPost"  >					         		 
+					         		<input type="text" name="idPost" id="idPost"  value="0" >					         		 
 					         	</div>
                                 <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                                     <label>idArte:</label>
-                                    <input type="text" name="idArte" id="idArte"  >                                  
+                                    <input type="text" name="idArte" id="idArte" value="0" >                                  
                                 </div>                                
                                 <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <h4 class="modal-title">Datos del artista</h4>                                  
@@ -101,7 +101,7 @@
                                            @foreach($datoCatalogo as $item)
                                              @if($item['nombre'] == 'TIPO_POST')
                                                @if(session()->get('rol')=='Administrador')
-                                                 @if($item['detalle'] !='PROYECTO') 
+                                                 @if($item['detalle'] =='PROYECTO') 
                                                     <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
                                                  @endif
                                                 @else
@@ -176,6 +176,14 @@
                                     <label>Valor del arte :</label>
                                     <input type="number" id="Valor" name="Valor" class="form-control">                                                     
                                 </div>
+                                <div class="form-row col-lg-4 col-sm-12">
+                                    @if(session()->get('rol')=='Administrador')
+                                     <label>Pdf:</label>
+                                     <input type="file" id="PDF" accept="pdf/*">
+                                     <a href="" id="linkPdf" target="_blank" >Ver Pdf</a>
+                                     <input type="text" id="PathPdf" name="PathPdf" hidden>
+                                    @endif
+                                </div>
 					           </div>
 					         </form>
 					      </div>
@@ -218,6 +226,7 @@
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
                         <th>Valor</th>
+                        <th>UrlPDf</th>
 		        		<th>Acción</th>    
 		        	  </thead>
    	 	   	  	</table>
@@ -293,6 +302,7 @@
             { name:'fecha_ini',data:'fecha_ini'}, 
             { name:'fecha_fin',data:'fecha_fin'}, 
             { name:'valor_ini',data:'valor_ini'},
+            { name:'urlPdf',data:'urlPdf'},
             {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarPost' > <i class='fas fa-edit' > </i> </button> "   }                 
         ],     
         columnDefs: [
@@ -317,6 +327,7 @@
             {'targets':[23],'visible':false,'searchable':false},
             {'targets':[24],'visible':false,'searchable':false},
             {'targets':[25],'visible':false,'searchable':false},
+            {'targets':[27],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
@@ -356,7 +367,11 @@
             bloquearCampos();
         }else if( "{{session()->get('rol')}}" === "Administrador"){    
             $("#Opcion").val('5');
-
+            if(data.tipo_post ==='PROYECTO')
+            {
+                $("#linkPdf").attr('href',data.urlPdf);
+            }
+            
             if("{{session()->get('idUsuario')}}" === data.id_usuario){
 
             } else {
@@ -389,6 +404,26 @@
             else{
                 $("#PathImagen").val('');
             }
+
+            if($("#PDF").val().length>0){
+
+                const fd = new FormData();
+                let file = document.getElementById("PDF").files[0];
+                let fileName = document.getElementById("PDF").files[0].name;
+                $("#PathPdf").val(fileName);
+                fd.append('file',file, fileName);
+                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadFile',fd);	              
+                envioImagen.then((data)=>{
+                    console.log(data);
+                }).catch((data)=>{
+                    console.log(data);
+                })
+                }
+                else{
+                $("#PathImagen").val('');
+                }
+
+
                 desbloquearCampos();
                 $.ajax({
                 type: 'POST', 
