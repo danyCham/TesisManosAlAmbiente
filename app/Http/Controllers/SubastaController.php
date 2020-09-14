@@ -25,34 +25,20 @@ class SubastaController extends Controller{
    public function index(){ 
         if(session()->get('OK')== 'true'){
           $valida = new Utils();
+          $catalogo = new CatalogoController();
+          $datoscatalogo = $catalogo->consultarCatalogoGeneral();
 
-          return $valida->validarAutorizacion("Post","modules.galeria.subasta");
+          return $valida->validarAutorizacionCatalogos("Subasta","modules.galeria.subasta", $datoscatalogo);
         }
         else{
             return view('login');
         }
    }
-   
-   public function consultarSubastaGeneral(){
-    try {    
-        $res = $this->cliente->request('GET', $this->baseUrl.'subasta/0/4');
-          
-         $response =  json_encode(response()->json(json_decode(($res->getBody() ))));
-         $array = json_decode($response,true);
-         return $array['original']['respuesta'];         
-       } 
-      catch (Exception $ex) {
-          $logs = new Utils();
-          $logs->escribirLog($ex->getMessage());
-          $resp = array('CodigoError'=>'0001','MensajeError'=> 'Ocurrio un error inesperado contactar con sistemas!!');
-          return array('data'=>$resp);
-      }
-   }
 
    public function consultarSubasta(){
     try {
         $rol =  session()->get('rol');
-        $opcion = $rol == 'Administrador' ? '8' :  ($rol == 'Artista' ? '6' : '4');
+        $opcion = $rol == 'Administrador' ? '6' :  ($rol == 'Artista' ? '5' : '4');
 
         $res = $this->cliente->request('GET', $this->baseUrl.'post/'.session()->get('idUsuario').'/'.$opcion, [           
             'headers' =>[
@@ -74,46 +60,22 @@ class SubastaController extends Controller{
 
    public function mantenimiento(Request $request){
     $validatedData = $request->validate([
-        'idPost' => 'required',
-        'idArte' => 'required',
-        'Titulo' => 'required',       
-        'TipoPost' => 'required',
-        'MaterialUsado' => 'required',
-        'Alto' => 'required',             
-        'Ancho' => 'required',
-        'TipoArte' => 'required',
-        'FechaInicio' => 'required',
-        'FechaFin' => 'required',            
-        'Valor' => 'required',            
-        'Estado' => 'required',
-        'idImagen' => 'required',         
+        'idSubasta' => 'required',
+        'estado' => 'required',
+        'IdCliente' => 'required',       
+        'CantIni' => 'required',
+        'Oferta' => 'required',        
         'Opcion'=>'required'
         ]);
 
     try {
         $res = $this->cliente->request('POST', $this->baseUrl.'post', [
-            'json' =>  [	
-                "p_id_arte"=>$request->input('idArte'),
-                "p_nombre"=>$request->input('Titulo'),
-                "p_material_art"=>$request->input('MaterialUsado'),
-                "p_alto_art"=>$request->input('Alto'),
-                "p_ancho_art" =>$request->input('Ancho'),
-                "p_id_etiqueta"=>$request->input('TipoArte'),
-                "p_id_imagen"=>$request->input('idImagen'),
-                "p_Url"=>  $request->input('PathImagen') == "" ? '' : $this->baseUrl.'public/images/'.$request->input('PathImagen'),							 
-                "p_id_post"=>$request->input('idPost') ,
-                "p_id_categoria_post"=>$request->input('TipoPost'),
-                "p_titulo"=>$request->input('Titulo') ,
-                "p_descripcion"=>$request->input('Descripcion'),
-                "p_id_artista"=> session()->get('idUsuario'),
-                "p_id_administrador"=> 1 ,
-                "p_id_estado_post"=> $request->input('Estado'),
-                "p_id_tipo_post"=>$request->input('TipoPost') ,
-                "p_fecha_ini"=> $request->input('FechaInicio'),
-                "p_fecha_fin" => $request->input('FechaFin'),
-                "p_valor_subasta_ini"=>$request->input('Valor'),
-                "p_valor_subasta_fin"=>$request->input('Valor'),
-                "p_observacion"=>$request->input('Observacion'),
+            'json' =>  [
+                "p_id_subasta"=>$request->input('idSubasta'),
+                "p_id_estado"=>$request->input('estado'),
+                "p_id_cliente"=>$request->input('IdCliente'),
+                "p_cantidad_min"=>$request->input('CantIni'),
+                "p_cantidad_max" =>$request->input('Oferta'),
                 "p_Opcion"=> $request->input('Opcion')
             ], 
             'headers' =>[

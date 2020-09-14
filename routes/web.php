@@ -85,7 +85,6 @@ Route::post('/galeria/post/mantenimiento','PostController@mantenimiento')->name(
 /*==========================================================*/
 Route::get('/galeria/subasta','SubastaController@index')->name('subasta.index');
 Route::get('/galeria/subasta/consultar','SubastaController@consultarSubasta')->name('subasta.consultar');
-Route::get('/galeria/subasta/consultar/general','SubastaController@consultarSubastaGeneral')->name('subastaGeneral.consultar');
 Route::post('/galeria/subasta/mantenimiento','SubastaController@mantenimiento')->name('subasta.mantenimiento');
 /*==========================================================*/
 
