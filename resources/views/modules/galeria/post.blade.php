@@ -41,56 +41,53 @@
 					         <div class="row">
 					         	<div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
 					         		<label>idPost:</label>
-<<<<<<< HEAD
 					         		<input type="text" name="idPost" id="idPost"  value="0" >					         		 
 					         	</div>
-                                <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
-                                    <label>idArte:</label>
-                                    <input type="text" name="idArte" id="idArte" value="0" >                                  
-=======
+                      <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                          <label>idArte:</label>
+                          <input type="text" name="idArte" id="idArte" value="0" >
 					         		<input type="text" name="idPost" id="idPost" value="0" >					         		 
 					         	</div>
-                                <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
-                                    <label>idArte:</label>
-                                    <input type="text" name="idArte" id="idArte"  value="0">                                  
->>>>>>> 2573f7248bf768386977442e825ad8dcfd91abf4
-                                </div>                                
-                                <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <h4 class="modal-title">Datos del artista</h4>                                  
-                                </div>
+                    <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
+                        <label>idArte:</label>
+                        <input type="text" name="idArte" id="idArte"  value="0">
+                    </div>                                
+                    <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <h4 class="modal-title">Datos del artista</h4>                                  
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">                                    
-                                    <label>Nombre del artista:</label>
-                                    <input type="text" id="Nombre" name="Nombre" class="form-control">                    
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">                                    
+                        <label>Nombre del artista:</label>
+                        <input type="text" id="Nombre" name="Nombre" class="form-control">                    
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Correo electronico:</label>
-                                    <input type="text" id="Correo" name="Correo" class="form-control">                       
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <label>Correo electronico:</label>
+                        <input type="text" id="Correo" name="Correo" class="form-control">                       
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Telefono:</label>
-                                    <input type="text" id="Telefono" name="Telefono" class="form-control">                       
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <label>Telefono:</label>
+                        <input type="text" id="Telefono" name="Telefono" class="form-control">                       
+                    </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Imagen del artista: </label>
-                                     <img src="" id="imagenArtistaMostrar" style = "width:150px;heigth:150;"> 
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <label>Imagen del artista: </label>
+                         <img src="" id="imagenArtistaMostrar" style = "width:150px;heigth:150;"> 
+                    </div>
 
-                                <div class="form-row col-lg-12 col-sm-12"style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <h4 class="modal-title">Datos del post</h4>                     
-                                </div>
+                    <div class="form-row col-lg-12 col-sm-12"style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                        <h4 class="modal-title">Datos del post</h4>                     
+                    </div>
 
-                                <div class="form-row col-lg-12 col-sm-12">
-                                    <label>Imagen:</label>
-                                     <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
-                                     <img src="" id="imagenMostrar" style = "width:200px;heigth:200;">    
-                                     <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="PathImagen" id="PathImagen" class="form-control">      
-                                      <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">   
-                                      <input  style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">                            
-                                </div>
+                    <div class="form-row col-lg-12 col-sm-12">
+                        <label>Imagen:</label>
+                         <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
+                         <img src="" id="imagenMostrar" style = "width:200px;heigth:200;">    
+                         <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="PathImagen" id="PathImagen" class="form-control">      
+                          <input style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">   
+                          <input  style="display:{{session()->get('rol')!='Cliente'?'inline':'none'}}" type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">                            
+                    </div>
 
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Título:</label>
@@ -100,29 +97,29 @@
 					         	<div class="form-row col-lg-4 col-sm-12">
 					         		<label>Tipo Post:</label>
 					         		<select  id="TipoPost" name="TipoPost" class="form-control">
-                                       <option value="">Seleccione</option>   
-                                           @foreach($datoCatalogo as $item)
-                                             @if($item['nombre'] == 'TIPO_POST')
-                                               @if(session()->get('rol')=='Administrador')
-                                                 @if($item['detalle'] =='PROYECTO') 
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                 @endif
-                                                @else
-                                                    <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
-                                                @endif
-                                            @endif
-                                            @endforeach
-                                     </select>					         		 
+                         <option value="">Seleccione</option>   
+                             @foreach($datoCatalogo as $item)
+                               @if($item['nombre'] == 'TIPO_POST')
+                                 @if(session()->get('rol')=='Administrador')
+                                   @if($item['detalle'] =='PROYECTO') 
+                                      <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
+                                   @endif
+                                  @else
+                                      <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}</option>
+                                  @endif
+                              @endif
+                              @endforeach
+                       </select>					         		 
 					         	</div>
-                                <div class="form-row col-lg-4 col-sm-12">
-                                    <label>Material Arte:</label>
-                                    <select  id="IdMaterial" name="IdMaterial" class="form-control">
-                                        <option value="">Seleccione</option>
-                                           @foreach($datoMaterial as $itemMat)
-                                            <option value="{{$itemMat['id_material']}}">{{$itemMat['nombre']}}</option>
-                                           @endforeach
-                                     </select>                                   
-                                </div>
+                    <div class="form-row col-lg-4 col-sm-12">
+                        <label>Material Arte:</label>
+                        <select  id="IdMaterial" name="IdMaterial" class="form-control">
+                            <option value="">Seleccione</option>
+                               @foreach($datoMaterial as $itemMat)
+                                <option value="{{$itemMat['id_material']}}">{{$itemMat['nombre']}}</option>
+                               @endforeach
+                         </select>                                   
+                    </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
 					         		<label>Alto :</label>
@@ -402,7 +399,7 @@
                 let fileName = document.getElementById("imagen").files[0].name;
                 $("#PathImagen").val(fileName);
                 fd.append('image',file, fileName);
-                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadImage',fd);	              
+                let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);	              
                 envioImagen.then((data)=>{
                     console.log(data);
                 }).catch((data)=>{

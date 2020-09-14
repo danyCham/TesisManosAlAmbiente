@@ -40,7 +40,7 @@ class SubastaController extends Controller{
         $rol =  session()->get('rol');
         $opcion = $rol == 'Administrador' ? '6' :  ($rol == 'Artista' ? '5' : '4');
 
-        $res = $this->cliente->request('GET', $this->baseUrl.'post/'.session()->get('idUsuario').'/'.$opcion, [           
+        $res = $this->cliente->request('GET', $this->baseUrl.'subasta/'.session()->get('idUsuario').'/'.$opcion, [           
             'headers' =>[
                 'Authorization' => session()->get('token'),
                 'Content-Type' => 'application/json; charset=utf-8'
@@ -61,21 +61,21 @@ class SubastaController extends Controller{
    public function mantenimiento(Request $request){
     $validatedData = $request->validate([
         'idSubasta' => 'required',
-        'estado' => 'required',
+        'Estado' => 'required',
         'IdCliente' => 'required',       
-        'CantIni' => 'required',
-        'Oferta' => 'required',        
+        'ValorInicio' => 'required',
+        'oferta' => 'required',        
         'Opcion'=>'required'
         ]);
 
     try {
-        $res = $this->cliente->request('POST', $this->baseUrl.'post', [
+        $res = $this->cliente->request('POST', $this->baseUrl.'subasta', [
             'json' =>  [
                 "p_id_subasta"=>$request->input('idSubasta'),
-                "p_id_estado"=>$request->input('estado'),
+                "p_id_estado"=>$request->input('Estado'),
                 "p_id_cliente"=>$request->input('IdCliente'),
-                "p_cantidad_min"=>$request->input('CantIni'),
-                "p_cantidad_max" =>$request->input('Oferta'),
+                "p_cantidad_min"=>$request->input('ValorInicio'),
+                "p_cantidad_max" =>$request->input('oferta'),
                 "p_Opcion"=> $request->input('Opcion')
             ], 
             'headers' =>[

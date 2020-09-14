@@ -42,7 +42,11 @@ Route::get('/destroy','AuthenticateController@destroy')->name('auth.destroy');
 
 //rutas para la pantalla de usuarios
 Route::get('/seguridad/usuarios','UsuarioController@index')->name('usuario.index');
+
+Route::get('/seguridad/miperfil','UsuarioController@index')->name('usuario.indexperfil');
+
 Route::get('/seguridad/miperfil','UsuarioController@indexperfil')->name('usuario.indexperfil');
+
 //para consulta los usuarios
 Route::get('/seguridad/usuarios/consulta/{idRol}/{Cedula}/{Opcion}','UsuarioController@consultarUsuarios')->name('usuario.consultar');
 

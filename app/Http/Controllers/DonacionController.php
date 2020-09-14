@@ -67,7 +67,7 @@ class DonacionController extends Controller{
         'idMaterial' => 'required',
         'cedula' => 'required',             
         'tipo_entrega' => 'required',
-        'estado' => 'required',
+        'Estado' => 'required',
         'Cantidad' => 'required',
         'Valor' => 'required',         
         'Opcion'=>'required'
@@ -82,7 +82,7 @@ class DonacionController extends Controller{
                 "p_id_material" =>$request->input('idMaterial'),
                 "p_Cedula"=>$request->input('cedula'),
                 "p_id_tipo_entrega"=>$request->input('tipo_entrega') ,
-                "p_id_estado"=>$request->input('estado'),
+                "p_id_estado"=>$request->input('Estado'),
                 "p_cantidad"=>$request->input('Cantidad') ,
                 "p_valor"=>$request->input('Valor'),
                 "p_Opcion"=> $request->input('Opcion')

@@ -39,6 +39,13 @@
                   <form id="frmMaterial" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                    @csrf
                      <div class="row">
+                      <div class="form-row col-lg-12 col-sm-12">
+                        <label>Imagen:</label>
+                          <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
+                          <img src="" id="imagenMostrar">    
+                          <input type="text" hidden name="PathImagen" id="PathImagen" class="form-control">    
+                          <input type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control"><input type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">
+                      </div>
                       <div class="form-row col-lg-12 col-sm-12 ml-auto" style="display: none;">
                         <label>idMaterial:</label>
                         <input type="text" name="idMaterial" id="idMaterial" value ="0">                       
@@ -53,7 +60,7 @@
                       </div>
                       <div class="form-row col-lg-12 col-sm-12">
                         <label>Precio por medida:</label>
-                        <input type="text" id="precio" name="precio" class="form-control">
+                        <input type="number" id="precio" name="precio" class="form-control">
                       </div>
                       <div class="form-row col-lg-12 col-sm-12">
                         <label>Estado:</label>
@@ -66,14 +73,7 @@
                             @endif
                             @endforeach
                         </select>
-                      </div>
-                      <div class="form-row col-lg-12 col-sm-12">
-                        <label>Imagen:</label>
-                          <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
-                          <img src="" id="imagenMostrar">    
-                          <input type="text" hidden name="PathImagen" id="PathImagen" class="form-control">    
-                          <input type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control"><input type="text" hidden name="Opcion" id="Opcion" value="1" class="form-control">
-                      </div>
+                      </div>                      
                     </div>
                    </form>
                 </div>
@@ -95,6 +95,7 @@
                 <th>Cod. Imagen</th> 
                         <th>Imagen</th>
                 <th>PathImagen</th>
+                <th>Cod. estado</th>
                         <th>estado</th>
                         <th>Acción</th>    
                 </thead>
@@ -147,17 +148,19 @@
             {
                 "data":"imagen_material",
                 "render": function(data,type,row,meta){
-                    return '<img src="'+data+'" style = "width:150px;heigth:150;">';
+                    return '<img src="'+data+'" style = "width:100px;heigth:100;">';
                 }
             },
             {name:'imagen_material',data:'imagen_material'},
+            { name:'id_estado',data:'id_estado'},
             { name:'estado',data:'estado'},
-            {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarMaterial' > <i class='fas fa-edit' > </i> </button> "   }                 
+            {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarMaterial' > <i class='fas fa-edit' > </i> </button>  <button class='btn btn-danger' style='display:{{session()->get('rol') =='Administrador'?'inline':'none'}};color:white;' id='btnEliminarMaterial' > <i class='fas fa-trash' > </i> </button> "   }                 
         ],     
         columnDefs: [
             {'targets':[0],'visible':false,'searchable':false},
             {'targets':[4],'visible':false,'searchable':false},
             {'targets':[6],'visible':false,'searchable':false},
+            {'targets':[7],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
@@ -170,12 +173,44 @@
         $("#idMaterial").val(data.id_material);
         $("#Nombre").val(data.nombre);
         $("#medida_peso").val(data.medida_peso);
-        $("#precio").val(data.p_precio);
-        $("#id_imagen").val(data.p_id_imagen);       
+        $("#precio").val(data.precio);
+        $("#id_imagen").val(data.id_imagen);       
         $("#imagenMostrar").attr('src',data.imagen_material); 
-        $('#imagenMostrar').prop('style', 'width:450px;heigth:450;margin:auto auto;');
-        $("#estado").val(data.estado);
+        $('#imagenMostrar').prop('style', 'width:100px;heigth:100;margin:auto auto;');
+        $("#estado").val(data.id_estado);
         $("#Opcion").val('2');
+    });
+
+    $("#tblMaterial tbody").on("click","#btnEliminarMaterial",function(){
+        var data = dataTableMaterial.row($(this).parents("tr")).data();
+        $("#idMaterial").val(data.id_material);
+        $("#tipo_entrega").val(data.id_tipo_entrega);
+        $("#precio").val(data.precio);
+        $("#Nombre").val(data.nombre);
+        $("#medida_peso").val(data.medida_peso);        
+        $("#estado").val('26');
+        $("#Opcion").val('5');
+        Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "Ya no estará disponible!!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+        }).then((result) => {
+        if (result.value) {
+             $("#btnSaveMaterial").click();
+          }
+        })
+        
+    });
+
+    $("#btnCloseMaterial").on("click",function(){
+      limpiarFormulario();
+    });
+    $("#btnAgregarMaterial").on("click",function(){
+      limpiarFormulario();
     });
 
     $("#btnSaveMaterial").on("click",function(){         
@@ -193,7 +228,7 @@
                     console.log(data);
                 }).catch((data)=>{
                     console.log(data);
-                })
+                });
             }
             else{
                 $("#PathImagen").val('');
@@ -273,6 +308,9 @@
 
             reader.readAsDataURL(input.files[0]);
         }
+    }
+    function limpiarFormulario() {
+        document.getElementById("frmMaterial").reset();
     }
 </script>
 

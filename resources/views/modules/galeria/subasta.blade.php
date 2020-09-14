@@ -9,7 +9,7 @@
         </ol>
       </div> 
 @endsection
-@section('content')
+@section('content') 
 <br>
    <div class="container">
       <div class="container-fluid">         
@@ -23,7 +23,7 @@
                     
                     <!-- Modal -->
                     <div class="modal fade" id="modalSubasta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
+                      <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h4 class="modal-title"  id="exampleModalLabel">.:Subasta:.</h4>
@@ -43,7 +43,16 @@
                                     <h4 class="modal-title">Datos del artista</h4>                                  
                                 </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">                                    
+                                <div class="form-row col-lg-12 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
+                                     <img src="" id="imagenArtistaMostrar" style = "width:150px;heigth:150;margin:auto auto;"> 
+                                </div>
+
+                                <div class="form-row col-lg-4 col-sm-12" style="display: none;">
+                                    <label>id:</label>
+                                    <input type="text" id="IdCliente" name="IdCliente" value = "0" class="form-control">                    
+                                </div>
+
+                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <label>Nombre del artista:</label>
                                     <input type="text" id="Nombre" name="Nombre" class="form-control">                    
                                 </div>
@@ -58,24 +67,20 @@
                                     <input type="text" id="Telefono" name="Telefono" class="form-control">                       
                                 </div>
 
-                                <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
-                                    <label>Imagen del artista: </label>
-                                     <img src="" id="imagenArtistaMostrar" style = "width:150px;heigth:150;"> 
-                                </div>
-
                                 <div class="form-row col-lg-12 col-sm-12"style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <h4 class="modal-title">Datos del post</h4>                     
                                 </div>
 
+
+                                <div class="form-row col-lg-12 col-sm-12">
+                                     <img src="" id="imagenMostrar" style = "width:150px;heigth:150;">
+                                      <input type="text" hidden name="Opcion" id="Opcion" value="3" class="form-control">                            
+                                </div> 
+
                                 <div class="form-row col-lg-4 col-sm-12">
                                     <label>Título:</label>
                                     <input type="text" id="Titulo" name="Titulo" class="form-control">                       
-                                </div>
-
-                                <div class="form-row col-lg-8 col-sm-12">
-                                    <label>Descripción:</label>
-                                    <input type="text" id="Descripcion" name="Descripcion" class="form-control">                                                     
-                                </div>
+                                </div>                                
 
                                 <div class="form-row col-lg-4 col-sm-12">
                                     <label>Tipo Post:</label>
@@ -99,7 +104,7 @@
 
                                 <div class="form-row col-lg-4 col-sm-12">
                                     <label>Tipo Arte:</label>
-                                    <input type="number" id="TipoArte" name="TipoArte" class="form-control">                                     
+                                    <input type="text" id="TipoArte" name="TipoArte" class="form-control">                                     
                                 </div>
                                  <div class="form-row col-lg-4 col-sm-12">
                                     <label>Fecha Inicio :</label>
@@ -123,34 +128,29 @@
                                     </select>                                    
                                 </div>
                                 <div class="form-row col-lg-4 col-sm-12">
-                                    <label>Fecha Inicio :</label>
+                                    <label>Valor de subasta de inicio :</label>
                                     <input type="number" id="ValorInicio" name="ValorInicio" class="form-control">                                                     
                                 </div>
 
                                  <div class="form-row col-lg-4 col-sm-12">
-                                    <label>Fecha Fin :</label>
+                                    <label>Ultimo valor ofertado :</label>
                                     <input type="number" id="ValorFin" name="ValorFin" class="form-control">                                                   
                                 </div>
 
                                 <div class="form-row col-lg-4 col-sm-12" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}">
                                     <label>Oferta Subasta :</label>
-                                    <input type="number" id="oferta" name="oferta" class="form-control">
+                                    <input type="number" id="oferta" name="oferta" value ="0" class="form-control">
                                 </div>
-
-                                <div class="form-row col-lg-12 col-sm-12">
-                                    <label>Imagen:</label>
-                                     <input class="form-control" type="file" @change="imagen = e.target.file[0]" name="imagen" id="imagen"  accept="image/*" >
-                                     <img src="" id="imagenMostrar" style = "width:150px;heigth:150;">    
-                                     <input type="text" hidden name="PathImagen" id="PathImagen" class="form-control">      
-                                      <input type="text" hidden name="idImagen" id="idImagen" value="0" class="form-control">   
-                                      <input type="text" hidden name="Opcion" id="Opcion" value="3" class="form-control">                            
-                                </div>                               
-
+                                <div class="form-row col-lg-8 col-sm-12">
+                                    <label>Descripción:</label>
+                                    <textarea class="form-control" rows="5" id="Descripcion" name="Descripcion" maxlength="250" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></textarea>                                                   
+                                </div> 
                                </div>
                              </form>
                           </div>
                           <div class="modal-footer">
-                             <button type="button" style="display:{{session()->get('rol')=='Cliente'?'inline':'none'}}" id="btnSaveSubasta" class="btn btn-primary">Ofertar <i class="fas fa-save"></i> </button>
+                             <button type="button" style="display:{{session()->get('rol') =='Cliente'?'inline':'none'}}" id="btnSaveOferta" class="btn btn-primary">Ofertar <i class="fas fa-money-bill-wave"></i> </button>
+                             <button type="button" style="display:{{session()->get('rol') =='Administrador'?'inline':'none'}}" id="btnSaveSubasta" class="btn btn-primary">Guardar <i class="fas fa-save"></i> </button>
                              <button type="button" id="btnCloseSubasta" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fas fa-close"></i> </button>
                           </div>
                         </div>
@@ -167,7 +167,8 @@
                         <th>foto Artista</th> 
                         <th>Cod. Subasta</th>   
                         <th>Título</th>             
-                        <th>Descripción</th>   
+                        <th>Descripción</th>
+                        <th>Cod. Estado</th>   
                         <th>Estado</th>          
                         <th>Tipo Post</th>  
                         <th>Cod. Imagen</th>  
@@ -233,6 +234,7 @@
             { name:'titulo',data:'titulo'},
             {name:'descripcion',data:'descripcion'},
             { name:'id_estado',data:'id_estado'},
+            { name:'estado',data:'estado'},
             { name:'tipo_post',data:'tipo_post'},
             { name:'id_imagen',data:'id_imagen'},
             {
@@ -249,8 +251,8 @@
             { name:'cantidad_min',data:'cantidad_min'},
             { name:'cantidad_max',data:'cantidad_max'},           
             { name:'fecha_ini',data:'fecha_ini'}, 
-            { name:'fecha_fin',data:'fecha_fin'},            
-            {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarPost' > <i class='fas fa-edit' > </i> </button> "   }                 
+            { name:'fecha_fin',data:'fecha_fin'}, 
+            {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarSubasta' > <i class='fas fa-edit' > </i> </button>  <button class='btn btn-danger' style='display:{{session()->get('rol') =='Administrador'?'inline':'none'}};color:white;' id='btnEliminarSubasta' > <i class='fas fa-trash' > </i> </button> "   }                 
         ],     
         columnDefs: [
             {'targets':[0],'visible':false,'searchable':false},
@@ -260,18 +262,23 @@
             {'targets':[4],'visible':false,'searchable':false},
             {'targets':[5],'visible':false,'searchable':false},
             {'targets':[7],'visible':false,'searchable':false},
-            {'targets':[12],'visible':false,'searchable':false},            
+            {'targets':[8],'visible':false,'searchable':false},
+            {'targets':[10],'visible':false,'searchable':false},
+            {'targets':[11],'visible':false,'searchable':false},           
             {'targets':[13],'visible':false,'searchable':false},
             {'targets':[14],'visible':false,'searchable':false},
+            {'targets':[15],'visible':false,'searchable':false},
+            {'targets':[16],'visible':false,'searchable':false},
              
         ],    
         order: [[2, "asc"]],     
         iDisplayLength:5
     });
 
-    $("#tblSubasta tbody").on("click","#btnEditarPost",function(){
+    $("#tblSubasta tbody").on("click","#btnEditarSubasta",function(){
         var data = dataTableSubasta.row($(this).parents("tr")).data();
-        $("#modalSubasta").modal('show');           
+        $("#modalSubasta").modal('show');
+        $("#IdCliente").val(data.id_usuario);           
         $("#Nombre").val(data.nombreArtista);
         $("#Correo").val(data.email);
         $("#Telefono").val(data.telefono);
@@ -292,7 +299,7 @@
         $("#FechaFin").val(data.fecha_fin);                
         $("#imagenMostrar").attr('src',data.imagen_post); 
         $('#imagenMostrar').prop('style', 'width:100px;heigth:100;margin:auto auto;');
-        $("#Estado").val(data.estado_subasta);
+        $("#Estado").val(data.id_estado);
 
         if( "{{session()->get('rol')}}" === "Cliente"){    
             $("#Opcion").val('3');
@@ -304,6 +311,36 @@
             $("#Estado").prop('disabled',true);
         }
     });
+
+    $("#tblSubasta tbody").on("click","#btnEliminarSubasta",function(){
+        var data = dataTableSubasta.row($(this).parents("tr")).data();
+        $("#idSubasta").val(data.id_subasta);
+        $("#ValorInicio").val(data.cantidad_min);
+        $("#Estado").val('9');
+        $("#Opcion").val('2');
+        Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "Ya no estará disponible!!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+        }).then((result) => {
+        if (result.value) {
+             $("#btnSaveSubasta").click();
+          }
+        });
+        
+    });
+     
+     $("#btnCloseSubasta").on("click",function(){
+         limpiarFormulario();
+     });
+     $("#btnSaveOferta").on("click",function(){
+        $("#Opcion").val('3');
+        $("#btnSaveSubasta").click();
+     });
 
     $("#btnSaveSubasta").on("click",function(){         
         if($("#modoConsulta").val()==="S"){
@@ -324,22 +361,24 @@
                         timer: 15000
                     });     
                         
-                    dataTableSubasta.ajax.reload(); 
-                    $("#btnCloseSubasta").click();
+                     dataTableSubasta.ajax.reload(); 
+                     $("#btnCloseSubasta").click();
                     }
                     else
                     {
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'warning',
-                        title: 'Notificación',
-                        text: data.data[0].MensajeError,
-                        showConfirmButton: false,
-                        timer: 15000
-                    }); 
+                        bloquearCampos();
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'warning',
+                            title: 'Notificación',
+                            text: data.data[0].MensajeError,
+                            showConfirmButton: false,
+                            timer: 15000
+                        }); 
                     }                    
             },
             error: function(data){
+                bloquearCampos();
                 console.log(data);
                     Swal.fire({
                     position: 'top-center',
@@ -381,7 +420,9 @@
         $("#FechaInicio").prop('disabled',true);
         $("#FechaFin").prop('disabled',true);
         $("#Valor").prop('disabled',true);        
-        $("#imagen").prop('disabled',true);      
+        $("#imagen").prop('disabled',true); 
+        $("#ValorInicio").prop('disabled',true);
+        $("#ValorFin").prop('disabled',true);     
     }
     function desbloquearCampos(){
         $("#Nombre").prop('disabled',false);
@@ -399,6 +440,11 @@
         $("#Valor").prop('disabled',false);        
         $("#imagen").prop('disabled',false); 
         $("#Estado").prop('disabled',false);
+        $("#ValorInicio").prop('disabled',false);
+        $("#ValorFin").prop('disabled',false);
+    }
+    function limpiarFormulario() {
+        document.getElementById("frmSubasta").reset();
     }
     
 </script>

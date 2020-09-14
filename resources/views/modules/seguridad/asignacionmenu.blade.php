@@ -230,9 +230,9 @@
 
                 $("#btnSaveMenuRol").prop("disabled",true);
                 $("#modalMenuRol").modal("show");
-            }
+            };
             
-        })
+        });
 
         $("#tblMenuRol tbody").on("click","#btnElimnarMR",function(){
             var data = dataTableMenuRol.row($(this).parents("tr")).data();
@@ -252,7 +252,7 @@
               }
             })
             
-        })
+        });
 
       llenarComboMenu();
 
