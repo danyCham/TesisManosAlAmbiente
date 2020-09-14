@@ -381,7 +381,7 @@
                 let fileName = document.getElementById("imagen").files[0].name;
                 $("#PathImagen").val(fileName);
                 fd.append('image',file, fileName);
-                let envioImagen = axios.post('http://localhost:3000/api/v1.0/uploadImage',fd);	              
+                let envioImagen = axios.post('http://192.168.100.139:3000/api/v1.0/uploadImage',fd);	              
                 envioImagen.then((data)=>{
                     console.log(data);
                 }).catch((data)=>{

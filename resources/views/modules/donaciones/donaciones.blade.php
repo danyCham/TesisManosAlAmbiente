@@ -94,18 +94,16 @@
                             </div>
                             <div class="form-row col-lg-12 col-sm-12">
                                 <label for="">Estado</label>
-                                <select name="estado" id="estado" class="form-control">
+                                <select name="Estado" id="Estado" class="form-control">
                                     <option value="">Seleccione</option>
-                                     @if(session()->get('rol')=='Administrador')
+                                     
                                          @foreach($datoCatalogo as $item)
-                                             @if($item['nombre'] == 'ESTADO_DONACION')
-                                            <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
-                                            </option>
-                                            @endif
+                                            @if($item['nombre'] == 'ESTADO_DONACION')
+                                                <option value="{{$item['id_catalogoDet']}}">{{$item['detalle']}}
+                                                </option>
+                                             @endif 
                                          @endforeach
-                                     @else                                         
-                                      <option value="19">PENDIENTE</option>
-                                     @endif                                    
+                                                                        
                                 </select>
                             </div>
                             <div class="form-row col-lg-12 col-sm-12">
@@ -199,7 +197,7 @@
             { name:'id_tipo_entrega',data:'id_tipo_entrega'},
             { name:'tipo_entrega',data:'tipo_entrega'},
             { name:'id_estado',data:'id_estado'},
-            { name:'estado',data:'estado'}, 
+            { name:'estado_subasta',data:'estado_subasta'}, 
             { name:'id_material',data:'id_material'}, 
             { name:'material',data:'material'}, 
             { name:'medida_peso',data:'medida_peso'},
@@ -216,8 +214,8 @@
             { name:'fecha_registra',data:'fecha_registra'},
             { name:'fecha_entrega',data:'fecha_entrega'},
             { name:'valor',data:'valor'},
-            { name:'cedula',data:'cedula'},
-            {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarDonacion' > <i class='fas fa-edit' > </i> </button> "   }                 
+            { name:'cedula',data:'cedula'},  
+            {'defaultContent':"<button class='btn btn-primary' style='color:white;' id='btnEditarDonacion' > <i class='fas fa-edit' > </i> </button>  <button class='btn btn-danger' style='color:white;' id='btnEliminarDonacion' > <i class='fas fa-trash' > </i> </button> "   }                
         ],     
         columnDefs: [
             {'targets':[0],'visible':false,'searchable':false},
@@ -249,18 +247,48 @@
         $("#cedula").val(data.cedula);
         $("#imagenMaterial").attr('src',data.imagen_material);
         $("#tipo_entrega").val(data.id_tipo_entrega);
-        $("#estado").val(data.id_estado);
+        $("#Estado").val(data.id_estado);
         $("#Cantidad").val(data.cantidad_registrada);
         $("#Valor").val(data.valor);
         var opcion = "0";      
         if("{{session()->get('rol')}}" === "Administrador"){
             opcion = "8"
-            
+            $("#Estado").val(data.id_estado);            
         } else{
             opcion = "7"
+            $("#Estado").val('18');
         }
         $("#Opcion").val(opcion);
     });
+
+    $("#tblDonacion tbody").on("click","#btnEliminarDonacion",function(){
+        var data = dataTableDonacion.row($(this).parents("tr")).data();
+        $("#idDonaciones").val(data.id_donaciones);
+        $("#idMaterial").val(data.id_material);
+        $("#idCliente").val(data.id_usuario);
+        $("#Cantidad").val(data.cantidad_registrada);
+        $("#tipo_entrega").val(data.id_tipo_entrega);
+        $("#Estado").val('20');
+        $("#Opcion").val('8');
+        Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "Ya no estará disponible!!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+        }).then((result) => {
+        if (result.value) {
+             $("#btnSaveDonacion").click();
+          }
+        })
+        
+    });
+     
+     $("#btnCloseDonacion").on("click",function(){
+         limpiarFormulario();
+     });
 
     $("#Cantidad").on('keyup', function(){
         var precio = $("#precio").val();
@@ -337,6 +365,9 @@
 
         let imagen = $("#idMaterial option:selected").attr("imagen");
         $("#imagenMaterial").attr('src',imagen);
+    }
+    function limpiarFormulario() {
+        document.getElementById("frmDonacion").reset();
     }
 </script>
 
